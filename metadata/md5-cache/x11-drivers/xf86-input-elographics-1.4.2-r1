@@ -1,0 +1,12 @@
+BDEPEND=>=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=install prepare setup
+DEPEND=x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
+DESCRIPTION=Driver for xorg-server
+EAPI=7
+IUSE=kernel_linux
+KEYWORDS=*
+RDEPEND=x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18
+SLOT=0
+SRC_URI=https://gitlab.freedesktop.org/xorg/driver/xf86-input-elographics/-/archive/xf86-input-elographics-1.4.2/xf86-input-elographics-xf86-input-elographics-1.4.2.tar.bz2 -> xf86-input-elographics-1.4.2-gitlab.tar.bz2
+_eclasses_=autotools	1bf086cdd7356f5c9a4acd9727bd2065	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	a09389deba2c0a7108b581e02c7cecbf	libtool	f143db5a74ccd9ca28c1234deffede96	linux-info	c90a203b1c14cfa77bd3e37a0e96c955	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=a8b256bb20ebd9fe4fc774b99c5849e9
