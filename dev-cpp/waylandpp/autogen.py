@@ -7,14 +7,18 @@ async def generate(hub, **pkginfo):
 	version = None
 
 	for item in json_data:
-		if not item["prerelease"]:
-			try:
-				version = item["tag_name"]
-				list(map(int, version.split(".")))
-				break
+		if item["prerelease"] or item["draft"]:
+			continue
 
-			except (IndexError, ValueError, KeyError):
-				continue
+		try:
+			version = item["tag_name"]
+			list(map(int, version.split(".")))
+			break
+
+		except (IndexError, ValueError, KeyError):
+			continue
+	else:
+		version -= None
 
 	if version:
 		url = f"https://github.com/NilsBrause/waylandpp/archive/{version}.tar.gz"
