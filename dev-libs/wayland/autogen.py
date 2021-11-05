@@ -9,10 +9,15 @@ async def generate(hub, **pkginfo):
 	for item in json_data:
 		try:
 			version = item['name']
-			break
+			ver = version.split(".")
+			list(map(int, ver))
+			if int(ver[-1]) < 90:
+				break
 
-		except (IndexError, AttributeError, KeyError):
+		except (IndexError, ValueError, KeyError):
 			continue
+	else:
+		version = None
 
 	if version:
 		final_name = f"wayland-{version}.tar.xz"
