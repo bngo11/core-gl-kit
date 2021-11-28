@@ -4,7 +4,7 @@ EAPI=6
 
 DESCRIPTION="NVIDIA Docker"
 HOMEPAGE="https://github.com/NVIDIA/nvidia-docker"
-SRC_URI="https://github.com/NVIDIA/nvidia-docker/archive/v2.7.0-rc.2.tar.gz -> nvidia-docker-2.7.0-rc.2.tar.gz"
+SRC_URI="https://github.com/NVIDIA/nvidia-docker/archive/v2.8.0-rc.1.tar.gz -> nvidia-docker-2.8.0-rc.1.tar.gz"
 
 LICENSE="NVIDIA"
 SLOT="0"
