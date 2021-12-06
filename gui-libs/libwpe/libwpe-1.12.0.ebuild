@@ -1,4 +1,3 @@
-# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,7 +6,7 @@ inherit cmake
 
 DESCRIPTION="Platform-agnostic interfaces for WPE WebKit"
 HOMEPAGE="https://wpewebkit.org/"
-SRC_URI="https://wpewebkit.org/releases/${P}.tar.xz"
+SRC_URI="https://api.github.com/repos/WebPlatformForEmbedded/libwpe/tarball/1.12.0 -> libwpe-1.12.0.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="1.0"
@@ -23,6 +22,10 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 "
+
+post_src_unpack() {
+	mv "${WORKDIR}/"WebPlatformForEmbedded-libwpe* "${S}" || die
+}
 
 src_configure() {
 	local mycmakeargs=(
