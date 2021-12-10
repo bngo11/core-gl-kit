@@ -1,4 +1,4 @@
-BDEPEND=~dev-util/wayland-scanner-1.19.0 virtual/pkgconfig doc? ( >=app-doc/doxygen-1.6[dot] app-text/xmlto >=media-gfx/graphviz-2.26.0 sys-apps/grep[pcre] ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+BDEPEND=~dev-util/wayland-scanner-1.20.0 virtual/pkgconfig doc? ( >=app-doc/doxygen-1.6[dot] app-text/xmlto >=media-gfx/graphviz-2.26.0 sys-apps/grep[pcre] ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
 DEFINED_PHASES=compile configure install test
 DEPEND=>=dev-libs/expat-2.1.0-r3:= dev-libs/libxml2:= >=virtual/libffi-3.0.13-r1:=
 DESCRIPTION=Wayland protocol libraries
@@ -9,6 +9,6 @@ KEYWORDS=*
 LICENSE=MIT
 RDEPEND=>=dev-libs/expat-2.1.0-r3:= dev-libs/libxml2:= >=virtual/libffi-3.0.13-r1:=
 SLOT=0
-SRC_URI=https://wayland.freedesktop.org/releases/wayland-1.19.0.tar.xz -> wayland-1.19.0.tar.xz
+SRC_URI=https://wayland.freedesktop.org/releases/wayland-1.20.0.tar.xz -> wayland-1.20.0.tar.xz
 _eclasses_=meson	2fbe03e3b496f82fd941bcdb9d351c91	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-utils-r1	263e4bbfa6a84be6dc6272a6702aedca	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=1286d9160c1f4830811908779459d63c
+_md5_=151c621b4f2283828f9399530cbc5d54
