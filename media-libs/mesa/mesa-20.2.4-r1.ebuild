@@ -60,7 +60,6 @@ IUSE="${IUSE_VIDEO_CARDS}
 	pax_kernel pic selinux
 	debug unwind valgrind
 	alternate-path
-	test
 	video_cards_dri3
 	video_cards_vulkan-intel
 	video_cards_vulkan-amdgpu
@@ -204,68 +203,10 @@ RDEPEND="${RDEPEND}"
 # 2. Update the := to specify *max* version, e.g. < 7.
 # 3. Specify LLVM_MAX_SLOT, e.g. 6.
 LLVM_MAX_SLOT=11
-LLVM_DEPSTR="
-	sys-devel/llvm:11=
+RDEPEND="
+	${RDEPEND}
+	llvm? ( sys-devel/llvm:11= )
 "
-LLVM_DEPSTR_AMDGPU="
-	|| (
-		sys-devel/llvm:8[llvm_targets_AMDGPU(-)]
-		sys-devel/llvm:7[llvm_targets_AMDGPU(-)]
-		>=sys-devel/llvm-6.0.1-r1[llvm_targets_AMDGPU(-)]
-	)
-	sys-devel/llvm:=[llvm_targets_AMDGPU(-)]
-"
-CLANG_DEPSTR="
-	|| (
-		sys-devel/llvm:8[clang(+)]
-		sys-devel/llvm:7[clang(+)]
-		>=sys-devel/llvm-6.0.1-r1[clang(+)]
-	)
-	sys-devel/llvm:=[clang(+)]
-"
-CLANG_DEPSTR_AMDGPU="
-	|| (
-		sys-devel/llvm:8[clang(+),llvm_targets_AMDGPU(-)]
-		sys-devel/llvm:7[clang(+),llvm_targets_AMDGPU(-)]
-		>=sys-devel/llvm-6.0.1-r1[clang(+),llvm_targets_AMDGPU(-)]
-	)
-	sys-devel/llvm:=[clang(+),llvm_targets_AMDGPU(-)]
-"
-RDEPEND="${RDEPEND}
-	llvm? (
-		opencl? (
-			video_cards_gallium-r600? (
-				${CLANG_DEPSTR_AMDGPU}
-			)
-			!video_cards_gallium-r600? (
-				video_cards_gallium-radeonsi? (
-					${CLANG_DEPSTR_AMDGPU}
-				)
-			)
-			!video_cards_gallium-r600? (
-				!video_cards_gallium-radeonsi? (
-					${CLANG_DEPSTR}
-				)
-			)
-		)
-		!opencl? (
-			video_cards_gallium-r600? (
-				${LLVM_DEPSTR_AMDGPU}
-			)
-			!video_cards_gallium-r600? (
-				video_cards_gallium-radeonsi? (
-					${LLVM_DEPSTR_AMDGPU}
-				)
-			)
-			!video_cards_gallium-r600? (
-				!video_cards_gallium-radeonsi? (
-					${LLVM_DEPSTR}
-				)
-			)
-		)
-	)
-"
-unset {LLVM,CLANG}_DEPSTR{,_AMDGPU}
 
 DEPEND="${RDEPEND}
 	>=dev-util/meson-0.48.1
@@ -295,28 +236,6 @@ x86? (
 	)
 )"
 
-llvm_check_deps() {
-	local flags=""
-
-	# Don't use LLVM 6 for radv, it cause hard lockups.
-	# This may be fixed with llvm 6.0.1?
-	#if use video_cards_gallium-radeonsi && use vulkan && [[ ${LLVM_SLOT} == 6 ]] ; then return 1 ; fi
-
-	# SWR doesn't like llvm-7 as of mesa 18.3.0_rc1
-	if use video_cards_gallium-swr && [ ${LLVM_SLOT} -eq 0 ] ; then return 1 ; fi
-
-	if use video_cards_gallium-r600 || use video_cards_gallium-radeonsi ; then
-		flags+="llvm_targets_AMDGPU(-)"
-	fi
-	if [ -n "$flags" ]; then
-		flags="[${flags}]"
-	fi
-	if use opencl; then
-		has_version "sys-devel/clang:${LLVM_SLOT}${flags}" || return 1
-	fi
-	has_version "sys-devel/llvm:${LLVM_SLOT}${flags}"
-}
-
 pkg_setup() {
 	# warning message for bug 459306
 	if use llvm && has_version sys-devel/llvm[!debug=]; then
@@ -337,7 +256,6 @@ src_prepare() {
 	fi
 
 	eapply_user
-
 	export OLD_PATH="${PATH}"
 }
 
@@ -426,7 +344,7 @@ src_configure() {
 
 	# SVGA drivers (needed for vmware)
 	if use video_cards_gallium-vmware ; then
-		gallium_enable video_cards_gallium-vmware svga
+		gallium_enable svga
 	fi
 
 
@@ -513,12 +431,13 @@ src_configure() {
 		-Dglx=$(usex glx $glx_opt disabled)
 		-Degl=$(usex egl auto false)
 		-Dglvnd=$(usex glvnd ${glvnd_opt} false)
+		-Dasm=$(if [[ "${ABI}" == "x86*" ]] ; then echo "false" ; else echo "true"; fi)
 		-Dglx-read-only-text=$(if [[ "${ABI}" == "x86" ]] && use pax_kernel ; then echo "true" ; else echo "false"; fi)
 		-Dllvm=$(usex llvm true false)
 		-Dvalgrind=$(usex valgrind auto false)
 		-Dlibunwind=$(usex unwind true false)
 		-Dlmsensors=$(usex sensors true false)
-		-Dbuild-tests=$(usex test true false)
+		-Dbuild-tests=false
 		-Dselinux=$(usex selinux true false)
 		-Dosmesa=$osmesa_enable
 		-Dosmesa-bits=8
@@ -528,12 +447,7 @@ src_configure() {
 	)
 	use video_cards_gallium-iris && emesonargs+=( -Dprefer-iris=true )
 
-#	if use llvm ; then
-#		export LLVM_CONFIG="$(llvm-config --prefix)/bin/${CHOST}-llvm-config"
-#	fi
-
 	use userland_GNU || export INDENT=cat
-
 
 	# We can't actually use meson_src_configure because it hard-codes the buildtype, prefix, libdir, etc.
 	# meson_src_configure
@@ -576,17 +490,6 @@ src_install() {
 	find "${ED}" -name '*.la' -delete
 	einstalldocs
 
-}
-
-src_test() {
-	if use llvm; then
-		local llvm_tests='lp_test_arit lp_test_arit lp_test_blend lp_test_blend lp_test_conv lp_test_conv lp_test_format lp_test_format lp_test_printf lp_test_printf'
-		pushd src/gallium/drivers/llvmpipe >/dev/null || die
-		emake ${llvm_tests}
-		pax-mark m ${llvm_tests}
-		popd >/dev/null || die
-	fi
-	emake check
 }
 
 pkg_postinst() {
