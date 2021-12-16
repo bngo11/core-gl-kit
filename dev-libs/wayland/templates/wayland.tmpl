@@ -33,7 +33,7 @@ RDEPEND="${DEPEND}"
 src_configure() {
 	local emesonargs=(
 		$(meson_use doc documentation)
-		$(meson_use doc dtd-validation)
+		$(meson_use doc dtd_validation)
 		-Dlibraries=true
 		-Dscanner=false
 	)

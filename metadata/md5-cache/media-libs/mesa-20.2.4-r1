@@ -11,4 +11,4 @@ REQUIRED_USE=d3d9? ( video_cards_gallium-swrast ) opencl? ( llvm || ( video_card
 SLOT=0
 SRC_URI=https://mesa.freedesktop.org/archive/mesa-20.2.4.tar.xz
 _eclasses_=llvm	21d8c0949a2693d7109cc6a25fabfcaf	meson	2fbe03e3b496f82fd941bcdb9d351c91	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-any-r1	54a3178500786b0a7ede4a23b7f2a6ad	python-utils-r1	263e4bbfa6a84be6dc6272a6702aedca	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=61f0abb0014bd2bc316e895ed4283eee
+_md5_=816bce895b436236db108aa5d7a812ff
