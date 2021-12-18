@@ -22,16 +22,16 @@ SLOT="0"
 RADEON_CARDS="r100 r200 r300 r600 radeonsi"
 INTEL_CARDS="i915 i965"
 
-ALL_DRI_DRIVERS="i915 i965 r100 r200 nouveau osmesa swrast intel radeon virgl amdgpu"
-for card in ${ALL_DRI_DRIVERS}; do
+ALL_DRI_DRIVERS="i915 i965 r100 r200 nouveau swrast"
+for card in ${ALL_DRI_DRIVERS% swrast*}; do
 	ALL_DRI_CARDS+=" video_cards_${card}"
 done
 
 ALL_SWR_ARCHES="avx avx2 knl skx"
 IUSE_SWR_CPUFLAGS="cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512er cpu_flags_x86_avx512bw"
 
-ALL_GALLIUM_DRIVERS="iris pl111 radeonsi r300 r600 nouveau freedreno vc4 v3d vivante imx tegra i915 osmesa vmware virgl swr swrast"
-for card in ${ALL_GALLIUM_DRIVERS}; do
+ALL_GALLIUM_DRIVERS="iris pl111 radeonsi r300 r600 nouveau freedreno vc4 v3d vivante imx tegra i915 vmware virgl swr swrast"
+for card in ${ALL_GALLIUM_DRIVERS% swrast*}; do
 	ALL_GALLIUM_CARDS+=" video_cards_gallium-${card}"
 done
 
@@ -40,6 +40,8 @@ IUSE_VIDEO_CARDS="${ALL_DRI_CARDS} ${ALL_GALLIUM_CARDS}"
 IUSE_GL="+glvnd +opengl +glx +egl +gles1 +gles2"
 IUSE_PLATFORMS="+X +drm wayland +surfaceless android haiku"
 IUSE_CL="opencl +ocl-icd"
+IUSE_MEDIA="video_cards_vaapi video_cards_vdpau video_cards_xvmc video_cards_xa video_cards_openmax"
+
 
 IUSE="${IUSE_VIDEO_CARDS}
 	${IUSE_DRIVER_OPTS}
@@ -47,12 +49,8 @@ IUSE="${IUSE_VIDEO_CARDS}
 	${IUSE_VULKAN}
 	${IUSE_PLATFORMS}
 	${IUSE_CL}
+	${IUSE_MEDIA}
 	${IUSE_SWR_CPUFLAGS}
-	xa
-	vaapi
-	vdpau
-	xvmc
-	openmax
 	+gbm
 	+llvm +shader-cache
 	d3d9
@@ -61,9 +59,19 @@ IUSE="${IUSE_VIDEO_CARDS}
 	debug unwind valgrind
 	alternate-path
 	test
+	video_cards_amdgpu
 	video_cards_dri3
+	video_cards_intel
+	video_cards_radeon
 	video_cards_vulkan-intel
 	video_cards_vulkan-amdgpu
+	video_cards_osmesa
+	video_cards_gallium-osmesa
+	video_cards_swrast
+	video_cards_gallium-swrast
+	video_cards_virgl
+	video_cards_gallium-i915
+	video_cards_gallium-iris
 "
 
 REQUIRED_USE_APIS="
@@ -90,7 +98,7 @@ REQUIRED_USE="
 REQUIRED_USE="
 	$REQUIRED_USE
 	?? ( video_cards_i915 video_cards_gallium-i915 )
-	?? ( video_cards_swrast video_cards_gallium-swr )
+	?? ( video_cards_swrast video_cards_gallium-swrast )
 	?? ( video_cards_osmesa video_cards_gallium-osmesa )
 	video_cards_vulkan-intel? ( video_cards_intel )
 	video_cards_i915? ( video_cards_intel )
@@ -169,18 +177,18 @@ RDEPEND="
 		dev-libs/libclc
 		virtual/libelf:0=
 	)
-	openmax? (
+	video_cards_openmax? (
 		>=media-libs/libomxil-bellagio-0.9.3:=
 		x11-misc/xdg-utils
 	)
-	vaapi? (
+	video_cards_vaapi? (
 		>=x11-libs/libva-1.7.3:=
 		video_cards_nouveau? ( !<=x11-libs/libva-vdpau-driver-0.7.4-r3 )
 	)
-	vdpau? ( >=x11-libs/libvdpau-1.1:= )
-	xvmc? ( >=x11-libs/libXvMC-1.0.8:= )
+	video_cards_vdpau? ( >=x11-libs/libvdpau-1.1:= )
+	video_cards_xvmc? ( >=x11-libs/libXvMC-1.0.8:= )
 
-	>=x11-libs/libdrm-2.4.102
+	>=x11-libs/libdrm-2.4.96
 	video_cards_gallium-radeonsi? ( x11-libs/libdrm[video_cards_radeon,video_cards_amdgpu] )
 	video_cards_r100? ( x11-libs/libdrm[video_cards_radeon] )
 	video_cards_r200? ( x11-libs/libdrm[video_cards_radeon] )
@@ -203,9 +211,14 @@ RDEPEND="${RDEPEND}"
 # 1. List all the working slots (with min versions) in ||, newest first.
 # 2. Update the := to specify *max* version, e.g. < 7.
 # 3. Specify LLVM_MAX_SLOT, e.g. 6.
-LLVM_MAX_SLOT=11
+LLVM_MAX_SLOT=9
 LLVM_DEPSTR="
-	sys-devel/llvm:11=
+	|| (
+		sys-devel/llvm:8
+		sys-devel/llvm:7
+		>=sys-devel/llvm-6.0.1-r1
+	)
+	sys-devel/llvm:=
 "
 LLVM_DEPSTR_AMDGPU="
 	|| (
@@ -355,7 +368,7 @@ src_configure() {
 	fi
 	if use video_cards_gallium-swrast; then
 		gallium_enable video_cards_gallium-swrast swrast
-		# swr only builds on 64bit intel -- it's an opt-in for more optimization on these platforms:
+		# swr only builds on 64bit intel
 		if [[ "${ABI}" == "amd64" ]] ; then
 			gallium_enable video_cards_gallium-swr swr
 		fi
@@ -471,22 +484,6 @@ src_configure() {
 	# Let mesa's meson script determine if it is relevant for our case.
 	# Many of the other "auto" options below are used in similar way.
 
-	if ! use video_cards_i915 && \
-	! use video_cards_i965 && \
-	! use video_cards_r100 && \
-	! use video_cards_r200 && \
-	! use video_cards_nouveau && \
-	! use video_cards_swrast; then
-		# mesa's meson logic tries to be too smart. We need to detect if we have any DRI cards. If not, 
-		# we need to automatically disable some other stuff or meson.build complains. It's always possible
-		# that we're asking mesa to build -- but we haven't selected any drivers!
-		glx_opt=disabled
-		glvnd_opt=false
-	else
-		glx_opt=auto
-		glvnd_opt=true
-	fi
-
 	local emesonargs=(
 		--prefix="${my_prefix}"
 		--libdir="${my_libdir}"
@@ -495,12 +492,11 @@ src_configure() {
 		-Ddri-drivers=${DRI_DRIVERS}
 		-Dgallium-drivers=${GALLIUM_DRIVERS}
 		-Dgallium-extra-hud=$(usex extra-hud true false)
-		-Dgallium-vdpau=$(usex vdpau auto false)
-		-Dgallium-xvmc=$(usex xvmc auto false)
-		-Dgallium-omx=$(usex openmax bellagio disabled)
-		-Dgallium-va=$(usex vaapi auto false)
-		-Dva-libs-path="${EPREFIX}"/usr/$(get_libdir)/va/drivers
-		-Dgallium-xa=$(usex xa auto false)
+		-Dgallium-vdpau=$(usex video_cards_vdpau auto false)
+		-Dgallium-xvmc=$(usex video_cards_xvmc auto false)
+		-Dgallium-omx=$(usex video_cards_openmax bellagio disabled)
+		-Dgallium-va=$(usex video_cards_vaapi auto false)
+		-Dgallium-xa=$(usex video_cards_xa auto false)
 		-Dgallium-nine=$(usex d3d9 true false)
 		-Dgallium-opencl=$(usex opencl $(usex ocl-icd icd standalone) disabled)
 		-Dvulkan-drivers=${VULKAN_DRIVERS}
@@ -510,9 +506,9 @@ src_configure() {
 		-Dgles2=$(usex gles2 auto false)
 		-Dopengl=$(usex opengl true false)
 		-Dgbm=$(usex gbm auto false)
-		-Dglx=$(usex glx $glx_opt disabled)
+		-Dglx=$(usex glx auto disabled)
 		-Degl=$(usex egl auto false)
-		-Dglvnd=$(usex glvnd ${glvnd_opt} false)
+		-Dglvnd=$(usex glvnd true false)
 		-Dglx-read-only-text=$(if [[ "${ABI}" == "x86" ]] && use pax_kernel ; then echo "true" ; else echo "false"; fi)
 		-Dllvm=$(usex llvm true false)
 		-Dvalgrind=$(usex valgrind auto false)
@@ -591,7 +587,7 @@ src_test() {
 
 pkg_postinst() {
 
-	if use openmax; then
+	if use video_cards_openmax; then
 		echo "XDG_DATA_DIRS=\"${EPREFIX}/usr/share/${P}/xdg\"" > "${T}/99mesaxdgomx"
 		doenvd "${T}"/99mesaxdgomx
 		keepdir /usr/share/mesa/xdg
@@ -609,7 +605,7 @@ pkg_postinst() {
 	fi
 
 	# run omxregister-bellagio to make the OpenMAX drivers known system-wide
-	if use openmax; then
+	if use video_cards_openmax; then
 		ebegin "Registering OpenMAX drivers"
 		BELLAGIO_SEARCH_PATH="${EPREFIX}/usr/$(get_libdir)/${P}/libomxil-bellagio0" \
 			OMX_BELLAGIO_REGISTRY=${EPREFIX}/usr/share/${P}/xdg/.omxregister \
@@ -619,7 +615,7 @@ pkg_postinst() {
 }
 
 pkg_prerm() {
-	if use openmax; then
+	if use video_cards_openmax; then
 		rm "${EPREFIX}"/usr/share/${P}/xdg/.omxregister
 	fi
 }
