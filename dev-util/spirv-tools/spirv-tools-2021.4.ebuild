@@ -33,7 +33,7 @@ src_configure() {
 	local mycmakeargs=(
 		"-DSPIRV-Headers_SOURCE_DIR=/usr/"
 		"-DSPIRV_WERROR=OFF"
-		"-DSPIRV_TOOLS_BUILD_STATIC=OFF"
+		"-DSPIRV_TOOLS_BUILD_STATIC=ON"
 		"-DBUILD_SHARED_LIBS=ON"
 	)
 
