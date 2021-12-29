@@ -29,8 +29,10 @@ PATCHES=(
 src_install() {
 	meson_src_install
 
-	insinto /usr/share/egl/egl_external_platform.d
-	doins "${FILESDIR}"/10_nvidia_wayland.json
+	if has_version "<x11-drivers/nvidia-drivers-495"; then
+		insinto /usr/share/egl/egl_external_platform.d
+		doins "${FILESDIR}"/10_nvidia_wayland.json
+	fi
 }
 
 pkg_postinst() {
