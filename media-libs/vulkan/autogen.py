@@ -37,7 +37,7 @@ async def generate(hub, **pkginfo):
 		'template_path' : loader.template_path,
 		'revision' : { '1.2.203' : '1' }
 	}
-	layers_pkginfo.update(await hub.pkgtools.github.tag_gen(hub, **layers_pkginfo, select=f"v{ver}"))
+	layers_pkginfo.update(await hub.pkgtools.github.tag_gen(hub, **layers_pkginfo))
 	hub.pkgtools.ebuild.BreezyBuild(**layers_pkginfo).push()
 
 	##################################################################################################
@@ -52,7 +52,7 @@ async def generate(hub, **pkginfo):
 		'name' : 'vulkan-headers',
 		'template_path' : loader.template_path
 	}
-	headers_pkginfo.update(await hub.pkgtools.github.tag_gen(hub, **headers_pkginfo, select=f"v{ver}"))
+	headers_pkginfo.update(await hub.pkgtools.github.tag_gen(hub, **headers_pkginfo))
 	hub.pkgtools.ebuild.BreezyBuild(**headers_pkginfo).push()
 
 	##################################################################################################
@@ -67,7 +67,7 @@ async def generate(hub, **pkginfo):
 		'name' : 'vulkan-tools',
 		'template_path' : loader.template_path
 	}
-	tools_pkginfo.update(await hub.pkgtools.github.tag_gen(hub, **tools_pkginfo, select=f"v.*"))
+	tools_pkginfo.update(await hub.pkgtools.github.tag_gen(hub, **tools_pkginfo))
 	hub.pkgtools.ebuild.BreezyBuild(**tools_pkginfo).push()
 
 
