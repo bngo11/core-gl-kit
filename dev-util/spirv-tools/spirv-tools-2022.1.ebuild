@@ -6,7 +6,7 @@ MY_PN=SPIRV-Tools
 PYTHON_COMPAT=( python3+ )
 inherit cmake-utils python-any-r1
 
-SRC_URI="https://api.github.com/repos/KhronosGroup/SPIRV-Tools/tarball/refs/tags/v2021.4 -> spirv-tools-2021.4.tar.gz"
+SRC_URI="https://api.github.com/repos/KhronosGroup/SPIRV-Tools/tarball/refs/tags/v2022.1 -> spirv-tools-2022.1.tar.gz"
 
 DESCRIPTION="Provides an API and commands for processing SPIR-V modules"
 HOMEPAGE="https://github.com/KhronosGroup/SPIRV-Tools"
