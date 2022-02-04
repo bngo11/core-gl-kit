@@ -9,4 +9,5 @@ LICENSE=MIT
 RESTRICT=test
 SLOT=0
 SRC_URI=https://www.freedesktop.org/software/libevdev/libevdev-1.5.9.tar.xz
+_eclasses_=multibuild	b2c915190b051f55a23b9354b9849847	multilib	d410501a125f99ffb560b0c523cd3d1e	multilib-build	dbed54cab0d2fac962c6342aeae40ef9	multilib-minimal	8bddda43703ba94d8341f4e247f97566	python-any-r1	54a3178500786b0a7ede4a23b7f2a6ad	python-utils-r1	8b6048ab112e99353b21b318b9074eb6	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
 _md5_=b0a8868bae993cf99e4e916949d8cd7b

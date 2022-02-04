@@ -7,4 +7,5 @@ LICENSE=GPL-2
 PDEPEND=>=dev-util/opencl-headers-2020.03.13 >=dev-util/opencl-clhpp-2.0.11
 RDEPEND=>=app-admin/eselect-1.2.4
 SLOT=0
+_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
 _md5_=94f96b281e87dec3a87226e734e2bc36
