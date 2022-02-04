@@ -6,5 +6,5 @@ KEYWORDS=*
 LICENSE=NVIDIA
 RDEPEND=app-emulation/docker app-emulation/nvidia-container-runtime x11-drivers/nvidia-drivers
 SLOT=0
-SRC_URI=https://github.com/NVIDIA/nvidia-docker/archive/v2.8.0.tar.gz -> nvidia-docker-2.8.0.tar.gz
-_md5_=954cdbb8e39cac501550b10738d04c6d
+SRC_URI=https://github.com/NVIDIA/nvidia-docker/archive/v2.9.0.tar.gz -> nvidia-docker-2.9.0.tar.gz
+_md5_=99dcba553ad24892e77550051cd8f85e
