@@ -8,4 +8,5 @@ LICENSE=GPL-2
 RDEPEND=x11-libs/tslib x11-base/xorg-server:=
 SLOT=0
 SRC_URI=https://github.com/merge/xf86-input-tslib/archive/1.2.0-rc1.tar.gz -> xf86-input-tslib-1.2.0_rc1.tar.gz
+_eclasses_=autotools	1bf086cdd7356f5c9a4acd9727bd2065	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	vcs-snapshot	b1abf460a493fc59ebb25de0df3f09dd
 _md5_=8dc7e1a2de6782856d457af14d8192a1
