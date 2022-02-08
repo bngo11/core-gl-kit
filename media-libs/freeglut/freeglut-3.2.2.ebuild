@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="A free OpenGL utility toolkit, the open-sourced alternative to the GLUT library"
 HOMEPAGE="http://freeglut.sourceforge.net/"
-SRC_URI="https://api.github.com/repos/dcnieho/FreeGLUT/tarball/refs/tags/FG_3_2_1 -> freeglut-3673b101ab751e8b9c55261f32a80b2e4bede242.tar.gz"
+SRC_URI="https://api.github.com/repos/dcnieho/FreeGLUT/tarball/refs/tags/FG_3_2_2 -> freeglut-9ca293e08d44337470895ccc4a8733abc71be275.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -25,9 +25,6 @@ RDEPEND=">=virtual/glu-9.0-r1
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto"
 BDEPEND="virtual/pkgconfig"
-
-PATCHES=( "${FILESDIR}"/${PN}-3.2.1-gcc10-fno-common.patch )
-HTML_DOCS=( doc/. )
 
 post_src_unpack() {
 	mv ${WORKDIR}/dcnieho-FreeGLUT-??????? "${S}" || die
