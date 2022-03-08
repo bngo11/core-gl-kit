@@ -9,7 +9,7 @@ inherit flag-o-matic cmake-utils python-any-r1 toolchain-funcs
 
 DESCRIPTION="Vulkan Installable Client Driver (ICD) Loader"
 HOMEPAGE="https://github.com/KhronosGroup/Vulkan-Loader"
-SRC_URI="https://github.com/KhronosGroup/Vulkan-Loader/tarball/ff06a164a3fe858b53bea88d75b454ad7fc49426 -> Vulkan-Loader-1.3.206-ff06a16.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/Vulkan-Loader/tarball/f24a0c67fcd7b12144f02553aefee66b6e48b917 -> Vulkan-Loader-1.3.207-f24a0c6.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
