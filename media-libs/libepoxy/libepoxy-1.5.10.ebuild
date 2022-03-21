@@ -9,7 +9,7 @@ inherit meson python-any-r1
 DESCRIPTION="Epoxy is a library for handling OpenGL function pointer management for you"
 HOMEPAGE="https://github.com/anholt/libepoxy"
 KEYWORDS="*"
-SRC_URI="https://github.com/anholt/libepoxy/releases/download/1.5.9/libepoxy-1.5.9.tar.xz -> libeproxy-1.5.9.tar.xz"
+SRC_URI="https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.10.tar.xz -> libepoxy-1.5.10.tar.xz"
 
 LICENSE="MIT"
 SLOT="0"

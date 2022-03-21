@@ -3,23 +3,26 @@
 import json
 
 async def generate(hub, **pkginfo):
-	json_data = await hub.pkgtools.fetch.get_page("https://api.github.com/repos/anholt/libepoxy/releases")
-	json_list = json.loads(json_data)
+	json_data = await hub.pkgtools.fetch.get_page("https://api.github.com/repos/anholt/libepoxy/releases", is_json=True)
 	version = None
 	url = None
 
-	for item in json_list:
-		if not item['prerelease']:
-			try:
-				version = item['tag_name']
-				url = item['assets'][0]['browser_download_url']
-				break
-
-			except (IndexError, AttributeError):
+	for item in json_data:
+		try:
+			if item["prerelease"] or item["draft"]:
 				continue
 
-	if version and url:
-		final_name = f"libeproxy-{version}.tar.xz"
+			version = item["tag_name"]
+			list(map(int, version.split(".")))
+			break
+
+		except (KeyError, IndexError, ValueError):
+			continue
+
+	if version:
+		base = ".".join(version.split(".")[:2])
+		final_name = f"libepoxy-{version}.tar.xz"
+		url = f"https://download.gnome.org/sources/libepoxy/{base}/{final_name}"
 		ebuild = hub.pkgtools.ebuild.BreezyBuild(
 			**pkginfo,
 			version=version,
