@@ -1,16 +1,2 @@
-=x11-libs/libxcb-1.14 python_single_target_python3_7
-dev-util/glslang python_single_target_python3_7
-dev-util/opencl-clhpp python_single_target_python3_7
-dev-util/spirv-tools python_single_target_python3_7
-dev-util/vkmark python_single_target_python3_7
-dev-util/vulkan-tools python_single_target_python3_7
 media-fonts/liberation-fonts python_single_target_python2_7 python_targets_python2_7
-media-libs/libepoxy python_single_target_python3_7
-media-libs/libglvnd python_single_target_python3_7
-media-libs/mesa python_single_target_python3_7
-media-libs/vulkan-layers python_single_target_python3_7
-media-libs/vulkan-loader python_single_target_python3_7
-x11-apps/igt-gpu-tools python_single_target_python3_7
-x11-base/xcb-proto python_single_target_python3_7
 x11-drivers/xf86-video-qxl python_single_target_python2_7 python_targets_python2_7
-x11-libs/libxkbcommon python_single_target_python3_7
