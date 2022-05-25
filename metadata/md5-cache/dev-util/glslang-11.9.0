@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) dev-util/ninja >=dev-util/cmake-3.9.6
+BDEPEND=|| ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10 ) dev-util/ninja >=dev-util/cmake-3.9.6
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DESCRIPTION=Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator
 EAPI=7
