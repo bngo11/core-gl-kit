@@ -9,7 +9,6 @@ IUSE=" "
 SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-glint/-/archive/xf86-video-glint-1.2.9/xf86-video-glint-xf86-video-glint-1.2.9.tar.bz2 -> xf86-video-glint-1.2.9-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
-
 DEPEND="
 	x11-base/xorg-proto
 	x11-base/xorg-server

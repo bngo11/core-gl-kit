@@ -1,2 +1,2 @@
-VIDEO_CARDS="intel gallium-iris vulkan-intel"
+VIDEO_CARDS="intel"
 USE="xa xvmc vaapi vdpau"

@@ -10,14 +10,17 @@ IUSE="xspice "
 SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-qxl/-/archive/xf86-video-qxl-0.1.5/xf86-video-qxl-xf86-video-qxl-0.1.5.tar.bz2 -> xf86-video-qxl-0.1.5-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
-
+PATCHES=(
+	"$FILESDIR"/xf86-video-qxl-use-boolean-instead-of-bool.patch
+)
 DEPEND="
 	x11-base/xorg-proto
 	x11-base/xorg-server
 	>=sys-devel/libtool-2.2.6a
 	sys-devel/m4
 	>=x11-misc/util-macros-1.18
-	>=app-emulation/spice-protocol-0.12.0
+	>=x11-base/xorg-server-1.20.10-r2
+>=app-emulation/spice-protocol-0.12.0
 
 "
 
@@ -40,7 +43,7 @@ pkg_setup() {
 	append-ldflags -Wl,-z,lazy
 }
 src_prepare() {
-	eapply_user
+	default
 	eautoreconf || die
 	python_fix_shebang scripts
 	

@@ -9,7 +9,6 @@ IUSE=" "
 SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-input-synaptics/-/archive/xf86-input-synaptics-1.9.1/xf86-input-synaptics-xf86-input-synaptics-1.9.1.tar.bz2 -> xf86-input-synaptics-1.9.1-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
-
 DEPEND="sys-kernel/linux-headers
 	x11-base/xorg-proto
 	x11-base/xorg-server

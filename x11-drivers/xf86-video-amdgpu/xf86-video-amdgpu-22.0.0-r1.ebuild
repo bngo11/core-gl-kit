@@ -9,7 +9,6 @@ IUSE=" "
 SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-amdgpu/-/archive/xf86-video-amdgpu-22.0.0/xf86-video-amdgpu-xf86-video-amdgpu-22.0.0.tar.bz2 -> xf86-video-amdgpu-22.0.0-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
-
 DEPEND="
 	x11-base/xorg-proto
 	x11-base/xorg-server
@@ -22,7 +21,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}x11-libs/libpciaccess
 	x11-libs/libdrm[video_cards_amdgpu]
-x11-base/xorg-server[glamor]
+x11-base/xorg-server[glamor(+),-minimal]
 
 "
 

@@ -9,7 +9,6 @@ IUSE=" "
 SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-omap/-/archive/xf86-video-omap-0.4.5/xf86-video-omap-xf86-video-omap-0.4.5.tar.bz2 -> xf86-video-omap-0.4.5-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
-
 DEPEND="
 	x11-base/xorg-proto
 	x11-base/xorg-server

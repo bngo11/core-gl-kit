@@ -9,7 +9,6 @@ IUSE=" "
 SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-nv/-/archive/xf86-video-nv-2.1.21/xf86-video-nv-xf86-video-nv-2.1.21.tar.bz2 -> xf86-video-nv-2.1.21-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
-
 DEPEND="
 	x11-base/xorg-proto
 	x11-base/xorg-server

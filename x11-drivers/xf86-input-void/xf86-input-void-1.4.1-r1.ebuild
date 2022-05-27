@@ -9,7 +9,6 @@ IUSE=" "
 SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-input-void/-/archive/xf86-input-void-1.4.1/xf86-input-void-xf86-input-void-1.4.1.tar.bz2 -> xf86-input-void-1.4.1-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
-
 DEPEND="
 	x11-base/xorg-proto
 	x11-base/xorg-server
