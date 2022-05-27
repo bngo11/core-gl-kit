@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-2.7.5-r2:2.7 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10 ) doc? ( app-doc/doxygen ) virtual/pkgconfig
+BDEPEND=|| ( dev-lang/python:3.10 >=dev-lang/python-2.7.5-r2:2.7 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) doc? ( app-doc/doxygen ) virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test
 DESCRIPTION=Handler library for evdev events
 EAPI=7
