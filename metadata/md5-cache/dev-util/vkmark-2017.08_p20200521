@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10 ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+BDEPEND=virtual/pkgconfig || ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) >=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
 DEFINED_PHASES=compile configure install setup test
 DEPEND=media-libs/assimp >=dev-libs/wayland-protocols-1.12 dev-libs/wayland media-libs/glm x11-libs/libxcb x11-libs/libdrm media-libs/mesa[gbm] dev-util/vulkan-headers media-libs/vulkan-loader
 DESCRIPTION=Extensible Vulkan benchmarking suite with targeted, configurable scenes.

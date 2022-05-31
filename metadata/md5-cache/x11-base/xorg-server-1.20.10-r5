@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1.20.10
 SRC_URI=https://www.x.org/releases/individual/xserver/xorg-server-1.20.10.tar.xz
 _eclasses_=autotools	1bf086cdd7356f5c9a4acd9727bd2065	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	a09389deba2c0a7108b581e02c7cecbf	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	xorg-3	212a355607d8ee9cf75132010ead368c
-_md5_=6a2a8dd6b16db655de77e84ccc22bd50
+_md5_=586e1b30d57ab2285c9ef46e8bc73900
