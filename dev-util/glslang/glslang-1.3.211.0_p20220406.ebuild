@@ -8,7 +8,7 @@ inherit cmake-utils python-any-r1
 
 DESCRIPTION="Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator"
 HOMEPAGE="https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/ https://github.com/KhronosGroup/glslang"
-SRC_URI="https://api.github.com/repos/KhronosGroup/glslang/tarball/refs/tags/11.9.0 -> glslang-11.9.0.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/glslang/archive/9bb8cfffb0eed010e07132282c41d73064a7a609.tar.gz -> glslang-1.3.211.0_p20220406.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
@@ -20,7 +20,6 @@ BDEPEND="${PYTHON_DEPS}"
 # Bug 698850
 RESTRICT="test"
 
-src_unpack() {
-	unpack "${A}"
-	mv "${WORKDIR}"/KhronosGroup-glslang-* "${S}" || die
+post_src_unpack() {
+	mv "${WORKDIR}"/*glslang-* "${S}" || die
 }

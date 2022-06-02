@@ -6,13 +6,12 @@ inherit cmake-utils
 
 DESCRIPTION="Machine-readable files for the SPIR-V Registry"
 HOMEPAGE="https://www.khronos.org/registry/spir-v/ https://github.com/KhronosGroup/SPIRV-Headers"
-SRC_URI="https://github.com/KhronosGroup/SPIRV-Headers/archive/4995a2f2723c401eb0ea3e10c81298906bf1422b.tar.gz -> spirv-tools-1.5.4_p20220316.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/SPIRV-Headers/archive/b765c355f488837ca4c77980ba69484f3ff277f5.tar.gz -> spirv-headers-1.3.211.0_p20220503.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="*"
 
-src_unpack() {
-	unpack "${A}"
+post_src_unpack() {
 	mv "${WORKDIR}"/SPIRV-Headers-* "${S}" || die
 }

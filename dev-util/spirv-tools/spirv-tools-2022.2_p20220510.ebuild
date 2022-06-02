@@ -6,7 +6,7 @@ MY_PN=SPIRV-Tools
 PYTHON_COMPAT=( python3+ )
 inherit cmake-utils python-any-r1
 
-SRC_URI="https://api.github.com/repos/KhronosGroup/SPIRV-Tools/tarball/refs/tags/v2022.2 -> spirv-tools-2022.2.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/SPIRV-Tools/archive/f74b85853c35b0dc973b92037f09db591f3e3fec.tar.gz -> spirv-tools-2022.2_p20220510.tar.gz"
 
 DESCRIPTION="Provides an API and commands for processing SPIR-V modules"
 HOMEPAGE="https://github.com/KhronosGroup/SPIRV-Tools"
@@ -18,15 +18,16 @@ KEYWORDS="*"
 # in the generated library. Easily hit with non-standard compiler flags
 RESTRICT="test"
 
-COMMON_DEPEND=">=dev-util/spirv-headers-1.5.4_p20210219"
+COMMON_DEPEND="
+	=dev-util/spirv-headers-1.3.211.0_p20220503*
+"
 DEPEND="${COMMON_DEPEND}"
 RDEPEND=""
 BDEPEND="${PYTHON_DEPS}
 	${COMMON_DEPEND}"
 
-src_unpack() {
-	unpack "${A}"
-	mv "${WORKDIR}"/KhronosGroup-SPIRV-Tools-* "${S}" || die
+post_src_unpack() {
+	mv "${WORKDIR}"/*SPIRV-Tools-* "${S}" || die
 }
 
 src_configure() {

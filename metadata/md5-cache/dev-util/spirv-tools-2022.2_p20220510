@@ -1,6 +1,6 @@
-BDEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) >=dev-util/spirv-headers-1.5.4_p20210219 dev-util/ninja >=dev-util/cmake-3.9.6
-DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=>=dev-util/spirv-headers-1.5.4_p20210219
+BDEPEND=|| ( dev-lang/python:3.10 dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 ) =dev-util/spirv-headers-1.3.211.0_p20220503* dev-util/ninja >=dev-util/cmake-3.9.6
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND==dev-util/spirv-headers-1.3.211.0_p20220503*
 DESCRIPTION=Provides an API and commands for processing SPIR-V modules
 EAPI=7
 HOMEPAGE=https://github.com/KhronosGroup/SPIRV-Tools
@@ -8,6 +8,6 @@ KEYWORDS=*
 LICENSE=Apache-2.0
 RESTRICT=test
 SLOT=0
-SRC_URI=https://api.github.com/repos/KhronosGroup/SPIRV-Tools/tarball/refs/tags/v2022.2 -> spirv-tools-2022.2.tar.gz
+SRC_URI=https://github.com/KhronosGroup/SPIRV-Tools/archive/f74b85853c35b0dc973b92037f09db591f3e3fec.tar.gz -> spirv-tools-2022.2_p20220510.tar.gz
 _eclasses_=cmake-utils	77cd39e6009811bf97a59d91ffd5b54f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	a09389deba2c0a7108b581e02c7cecbf	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-any-r1	54a3178500786b0a7ede4a23b7f2a6ad	python-utils-r1	c6ddaeb7a3e68d2564fa886420d0ae41	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	xdg-utils	14d00d009167652b1fa363e55effe213
-_md5_=c25ad2c38f1fcbfa04de99a5b7c0dd9a
+_md5_=755bc3e7abaa57593313ae8b4e47606b
