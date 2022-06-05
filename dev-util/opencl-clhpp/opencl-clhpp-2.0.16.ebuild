@@ -1,13 +1,12 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( {{python_compat}} )
+PYTHON_COMPAT=( python3+ )
 inherit cmake-utils python-any-r1
-
 
 DESCRIPTION="OpenCL Host API C++ bindings."
 HOMEPAGE="https://github.com/KhronosGroup/OpenCL-CLHPP"
-SRC_URI="{{artifacts[0].src_uri}}"
+SRC_URI="https://github.com/KhronosGroup/OpenCL-CLHPP/tarball/1df82b9749739f2681081092ae163bb0f0d40f66 -> OpenCL-CLHPP-2.0.16-1df82b9.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -33,7 +32,7 @@ pkg_setup() {
 
 src_unpack() {
 	unpack "${A}"
-	mv "${WORKDIR}"/{{github_user}}-{{github_repo}}-* "${S}" || die
+	mv "${WORKDIR}"/KhronosGroup-OpenCL-CLHPP-* "${S}" || die
 }
 
 src_configure() {
