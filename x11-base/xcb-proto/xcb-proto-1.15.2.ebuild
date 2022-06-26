@@ -2,14 +2,14 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( {{python_compat}} )
+PYTHON_COMPAT=( python3+ )
 XORG_STATIC=no
 
 inherit python-r1 xorg-2
 
 DESCRIPTION="X C-language Bindings protocol headers"
 HOMEPAGE="https://xcb.freedesktop.org/"
-SRC_URI="{{artifacts[0].src_uri}}"
+SRC_URI="https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.15.2.tar.xz"
 
 KEYWORDS="*"
 IUSE=""

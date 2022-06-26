@@ -40,8 +40,6 @@ def get_pkgs_from_meson(master_cpv, fn, prefix="pcs"):
 	from the meson file."""
 
 	capture = False
-	extract_path = os.path.dirname(fn)
-
 	with open(fn, "r") as f:
 		lines = f.readlines()
 		for line in lines:
@@ -53,24 +51,13 @@ def get_pkgs_from_meson(master_cpv, fn, prefix="pcs"):
 					break
 				else:
 					ls = ls.lstrip("[").rstrip("],").split(",")
-					try:
-						pkg = ls[0].strip().strip("'")
-						ver = ls[1].strip().strip("'")
-
-					except IndexError:
-						proto_file = os.path.expanduser(extract_path + f"/{pkg}.pc.in")
-						proto_file = glob(proto_file)
-						if len(proto_file) != 1 or not os.path.exists(proto_file[0]):
-							raise hub.pkgtools.ebuild.BreezyError(f"File not found or too many found: {pkg}.pc.in")
-
-						proto_file = proto_file[0]
-						with open(proto_file, "r") as f:
-							data = f.readlines()
-							for row in data:
-								rdata = row.strip()
-								if rdata.startswith("Version:"):
-									ver = rdata.split()[-1]
-
+					pkg = ls[0].strip().strip("'")
+					with open(fn.replace("meson.build",f"{pkg}.pc.in"), "r") as f_ver:
+						ver_lines = f_ver.readlines()
+						for ver_line in ver_lines:
+							if ver_line.startswith("Version: "):
+								ver = ver_line.strip("Version: ").strip()
+								break
 					yield master_cpv, pkg, ver
 
 
@@ -98,20 +85,6 @@ async def generate(hub, **pkginfo):
 	"""
 
 	xorgproto_implementations = []
-
-	template_args = dict(
-		**pkginfo,
-		version="2021.5",
-		GITHUB_REPO="xorg-xorgproto",
-		GITHUB_USER="freedesktop",
-		GITHUB_TAG="57acac1d4c7967f4661fb1c9f86f48f34a46c48d",
-	)
-	cpvr = "{cat}/{name}-{version}".format(**template_args)
-	url = "https://www.github.com/{GITHUB_USER}/{GITHUB_REPO}/tarball/{GITHUB_TAG}".format(**template_args)
-	final_name = "{name}-{GITHUB_TAG}.tar.gz".format(**template_args)
-	artifact = hub.pkgtools.ebuild.Artifact(url=url, final_name=final_name)
-
-	xorgproto_implementations.append((template_args, cpvr, artifact))
 
 	template_args = dict(
 		**pkginfo,
@@ -175,12 +148,14 @@ src_install() { return 0; }
 """
 
 	meta_mappings = defaultdict(set)
-	peeves = {}
 	for template_args, cpvr, artifact in xorgproto_implementations:
-		peeves[cpvr] = []
+		peeves = []
 		for pv_key, new_set in (await get_meson_mappings(hub, cpvr, artifact)).items():
 			meta_mappings[pv_key] |= new_set
-			peeves[cpvr].append("x11-proto/%s-%s" % pv_key)
+			peeves.append("x11-proto/%s-%s" % pv_key)
+
+		ebuild = hub.pkgtools.ebuild.BreezyBuild(artifacts=[artifact], peeves=sorted(peeves), **template_args)
+		ebuild.push()
 
 	for pv_key, all_meta_atoms in meta_mappings.items():
 		all_meta_atoms = sorted(list(all_meta_atoms))
@@ -188,16 +163,13 @@ src_install() { return 0; }
 			name=pv_key[0],
 			cat="x11-proto",
 			version=pv_key[1],
-			revision=1,
+			revision=2,
 			all_meta_atoms=all_meta_atoms,
 			template_text=sub_ebuild_template,
 		)
 		sub_ebuild.push()
 
-	for template_args, cpvr, artifact in xorgproto_implementations:
-		ebuild = hub.pkgtools.ebuild.BreezyBuild(artifacts=[artifact], peeves=sorted(peeves[cpvr]), **template_args)
 
-		ebuild.push()
 
 
 # vim: ts=4 sw=4 noet
