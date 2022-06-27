@@ -88,7 +88,7 @@ async def generate(hub, **pkginfo):
 
 	template_args = dict(
 		**pkginfo,
-		version="2019.2",
+		version="2022.1",
 		GITHUB_REPO="xorg-xorgproto",
 		GITHUB_USER="freedesktop",
 		GITHUB_TAG="f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f",
@@ -102,7 +102,7 @@ async def generate(hub, **pkginfo):
 
 	template_args = dict(
 		**pkginfo,
-		version="2018.4_p20180627",
+		version="2019.2",
 		revision=2,
 		GITHUB_REPO="xorg-xorgproto",
 		GITHUB_USER="freedesktop",
