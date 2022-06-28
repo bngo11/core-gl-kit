@@ -91,7 +91,7 @@ async def generate(hub, **pkginfo):
 		version="2022.1",
 		GITHUB_REPO="xorg-xorgproto",
 		GITHUB_USER="freedesktop",
-		GITHUB_TAG="f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f",
+		GITHUB_TAG="8c8bbb903410e39140727867a26bbe501f77de8f",
 	)
 	cpvr = "{cat}/{name}-{version}".format(**template_args)
 	url = "https://www.github.com/{GITHUB_USER}/{GITHUB_REPO}/tarball/{GITHUB_TAG}".format(**template_args)
@@ -106,7 +106,7 @@ async def generate(hub, **pkginfo):
 		revision=2,
 		GITHUB_REPO="xorg-xorgproto",
 		GITHUB_USER="freedesktop",
-		GITHUB_TAG="af9b5f43439378efd1e12d11d487a71f42790fec",
+		GITHUB_TAG="f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f",
 	)
 	cpvr = "{cat}/{name}-{version}-r{revision}".format(**template_args)
 	url = "https://www.github.com/{GITHUB_USER}/{GITHUB_REPO}/tarball/{GITHUB_TAG}".format(**template_args)

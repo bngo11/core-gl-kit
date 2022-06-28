@@ -9,8 +9,8 @@ HOMEPAGE="https://cgit.freedesktop.org/xorg/proto/xorgproto/"
 
 GITHUB_REPO="xorg-xorgproto"
 GITHUB_USER="freedesktop"
-GITHUB_TAG="af9b5f43439378efd1e12d11d487a71f42790fec"
-SRC_URI="https://www.github.com/freedesktop/xorg-xorgproto/tarball/af9b5f43439378efd1e12d11d487a71f42790fec -> xorg-proto-af9b5f43439378efd1e12d11d487a71f42790fec.tar.gz"
+GITHUB_TAG="f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f"
+SRC_URI="https://www.github.com/freedesktop/xorg-xorgproto/tarball/f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f -> xorg-proto-f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f.tar.gz"
 KEYWORDS="*"
 
 src_unpack() {

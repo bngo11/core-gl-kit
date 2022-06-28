@@ -9,8 +9,8 @@ HOMEPAGE="https://cgit.freedesktop.org/xorg/proto/xorgproto/"
 
 GITHUB_REPO="xorg-xorgproto"
 GITHUB_USER="freedesktop"
-GITHUB_TAG="f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f"
-SRC_URI="https://www.github.com/freedesktop/xorg-xorgproto/tarball/f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f -> xorg-proto-f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f.tar.gz"
+GITHUB_TAG="8c8bbb903410e39140727867a26bbe501f77de8f"
+SRC_URI="https://www.github.com/freedesktop/xorg-xorgproto/tarball/8c8bbb903410e39140727867a26bbe501f77de8f -> xorg-proto-8c8bbb903410e39140727867a26bbe501f77de8f.tar.gz"
 KEYWORDS="*"
 
 src_unpack() {
@@ -50,14 +50,15 @@ RDEPEND="
     =x11-proto/compositeproto-0.4.2*:0/stub
     =x11-proto/damageproto-1.2.1*:0/stub
     =x11-proto/dmxproto-2.3.1*:0/stub
+    =x11-proto/dpmsproto-1.2*:0/stub
     =x11-proto/dri2proto-2.8*:0/stub
     =x11-proto/dri3proto-1.2*:0/stub
     =x11-proto/evieproto-1.1.1*:0/stub
-    =x11-proto/fixesproto-5.0*:0/stub
+    =x11-proto/fixesproto-6.0*:0/stub
     =x11-proto/fontcacheproto-0.1.3*:0/stub
     =x11-proto/fontsproto-2.1.3*:0/stub
     =x11-proto/glproto-1.4.17*:0/stub
-    =x11-proto/inputproto-2.3.2*:0/stub
+    =x11-proto/inputproto-2.3.99.2*:0/stub
     =x11-proto/kbproto-1.0.7*:0/stub
     =x11-proto/lg3dproto-5.0*:0/stub
     =x11-proto/presentproto-1.2*:0/stub
@@ -80,5 +81,5 @@ RDEPEND="
     =x11-proto/xf86rushproto-1.1.2*:0/stub
     =x11-proto/xf86vidmodeproto-2.3.1*:0/stub
     =x11-proto/xineramaproto-1.2.1*:0/stub
-    =x11-proto/xproto-7.0.32*:0/stub
+    =x11-proto/xproto-7.0.33*:0/stub
     =x11-proto/xproxymngproto-1.0.3*:0/stub"
