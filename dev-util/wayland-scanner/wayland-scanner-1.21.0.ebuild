@@ -6,7 +6,7 @@ inherit meson
 
 DESCRIPTION="wayland-scanner tool"
 HOMEPAGE="https://wayland.freedesktop.org/ https://gitlab.freedesktop.org/wayland/wayland"
-SRC_URI="https://wayland.freedesktop.org/releases/wayland-1.20.0.tar.xz -> wayland-1.20.0.tar.xz"
+SRC_URI="https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.21.0/downloads/wayland-1.21.0.tar.xz -> wayland-1.21.0.tar.xz"
 
 LICENSE="MIT"
 SLOT="0"
