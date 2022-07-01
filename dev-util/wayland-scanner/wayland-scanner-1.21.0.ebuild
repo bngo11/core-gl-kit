@@ -25,6 +25,7 @@ src_configure() {
 	local emesonargs=(
 		-Ddocumentation=false
 		-Ddtd_validation=false
+		-Dtests=false
 		-Dlibraries=false
 		-Dscanner=true
 	)
