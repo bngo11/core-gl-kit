@@ -27,6 +27,7 @@ src_configure() {
 		-Ddtd_validation=false
 		-Dtests=false
 		-Dlibraries=false
+		-Dtests=false
 		-Dscanner=true
 	)
 	meson_src_configure
