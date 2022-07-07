@@ -9,7 +9,7 @@ inherit flag-o-matic cmake-utils python-any-r1 toolchain-funcs
 
 DESCRIPTION="Vulkan Installable Client Driver (ICD) Loader"
 HOMEPAGE="https://github.com/KhronosGroup/Vulkan-Loader"
-SRC_URI="https://github.com/KhronosGroup/Vulkan-Loader/tarball/68e5bdc58ff44efc03d30ad2ac62cf2ad41e8a8b -> Vulkan-Loader-1.3.219-68e5bdc.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/Vulkan-Loader/tarball/9ce0cf688b753a94478f0477bf50e89ee8b47ca6 -> Vulkan-Loader-1.3.220-9ce0cf6.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -18,7 +18,7 @@ IUSE="layers wayland X"
 
 BDEPEND=">=dev-util/cmake-3.10.2"
 DEPEND="
-	=dev-util/vulkan-headers-1.3.219*
+	=dev-util/vulkan-headers-1.3.220*
 	${PYTHON_DEPS}
 	wayland? ( dev-libs/wayland:= )
 	X? (
