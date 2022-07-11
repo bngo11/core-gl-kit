@@ -6,10 +6,10 @@ inherit autotools linux-info flag-o-matic
 DESCRIPTION="Driver for xorg-server"
 KEYWORDS="*"
 IUSE=" "
-SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-mga/-/archive/xf86-video-mga-2.0.0/xf86-video-mga-xf86-video-mga-2.0.0.tar.bz2 -> xf86-video-mga-2.0.0-gitlab.tar.bz2"
+SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-input-synaptics/-/archive/xf86-input-synaptics-1.9.2/xf86-input-synaptics-xf86-input-synaptics-1.9.2.tar.bz2 -> xf86-input-synaptics-1.9.2-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
-DEPEND="
+DEPEND="sys-kernel/linux-headers
 	x11-base/xorg-proto
 	x11-base/xorg-server
 	>=sys-devel/libtool-2.2.6a
@@ -19,8 +19,11 @@ DEPEND="
 "
 
 RDEPEND="
-	${DEPEND}x11-libs/libpciaccess
-	
+	${DEPEND}
+	>=dev-libs/libevdev-0.4
+>=x11-libs/libXi-1.2
+>=x11-libs/libXtst-1.1.0
+
 "
 
 WANT_AUTOCONF="latest"
@@ -34,12 +37,14 @@ src_prepare() {
 	eautoreconf || die
 	default
 }
-src_configure() {
-	XORG_CONFIGURE_OPTIONS=(
-		$(use_enable dri)
+pkg_pretend() {
+	CONFIG_CHECK="~INPUT_EVDEV "
+	check_extra_config
+}
 
-	)
-	econf ${XORG_CONFIGURE_OPTIONS[@]} || die
+pkg_postinst() {
+	CONFIG_CHECK="~INPUT_EVDEV "
+	check_extra_config
 }
 
 

@@ -6,10 +6,10 @@ inherit autotools linux-info flag-o-matic
 DESCRIPTION="Driver for xorg-server"
 KEYWORDS="*"
 IUSE=" "
-SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-input-synaptics/-/archive/xf86-input-synaptics-1.9.1/xf86-input-synaptics-xf86-input-synaptics-1.9.1.tar.bz2 -> xf86-input-synaptics-1.9.1-gitlab.tar.bz2"
+SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-input-keyboard/-/archive/xf86-input-keyboard-2.0.0/xf86-input-keyboard-xf86-input-keyboard-2.0.0.tar.bz2 -> xf86-input-keyboard-2.0.0-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
-DEPEND="sys-kernel/linux-headers
+DEPEND="
 	x11-base/xorg-proto
 	x11-base/xorg-server
 	>=sys-devel/libtool-2.2.6a
@@ -20,10 +20,7 @@ DEPEND="sys-kernel/linux-headers
 
 RDEPEND="
 	${DEPEND}
-	>=dev-libs/libevdev-0.4
->=x11-libs/libXi-1.2
->=x11-libs/libXtst-1.1.0
-
+	
 "
 
 WANT_AUTOCONF="latest"
@@ -36,15 +33,6 @@ pkg_setup() {
 src_prepare() {
 	eautoreconf || die
 	default
-}
-pkg_pretend() {
-	CONFIG_CHECK="~INPUT_EVDEV "
-	check_extra_config
-}
-
-pkg_postinst() {
-	CONFIG_CHECK="~INPUT_EVDEV "
-	check_extra_config
 }
 
 

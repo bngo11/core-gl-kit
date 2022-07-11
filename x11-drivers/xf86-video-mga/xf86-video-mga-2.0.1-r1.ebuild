@@ -6,7 +6,7 @@ inherit autotools linux-info flag-o-matic
 DESCRIPTION="Driver for xorg-server"
 KEYWORDS="*"
 IUSE=" "
-SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-input-keyboard/-/archive/xf86-input-keyboard-1.9.0/xf86-input-keyboard-xf86-input-keyboard-1.9.0.tar.bz2 -> xf86-input-keyboard-1.9.0-gitlab.tar.bz2"
+SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-mga/-/archive/xf86-video-mga-2.0.1/xf86-video-mga-xf86-video-mga-2.0.1.tar.bz2 -> xf86-video-mga-2.0.1-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
 DEPEND="
@@ -19,7 +19,7 @@ DEPEND="
 "
 
 RDEPEND="
-	${DEPEND}
+	${DEPEND}x11-libs/libpciaccess
 	
 "
 
@@ -33,6 +33,13 @@ pkg_setup() {
 src_prepare() {
 	eautoreconf || die
 	default
+}
+src_configure() {
+	XORG_CONFIGURE_OPTIONS=(
+		$(use_enable dri)
+
+	)
+	econf ${XORG_CONFIGURE_OPTIONS[@]} || die
 }
 
 
