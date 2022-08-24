@@ -17,7 +17,7 @@ IUSE="wayland X"
 
 BDEPEND=">=dev-util/cmake-3.10.2"
 DEPEND="
-	=dev-util/glslang-1.3.216.0_p20220812*
+	=dev-util/glslang-1.3.224.0_p20220812*
 	=dev-util/spirv-tools-2022.2_p20220808*
 	=dev-util/vulkan-headers-1.3.225*
 	${PYTHON_DEPS}
