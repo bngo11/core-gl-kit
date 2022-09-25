@@ -6,7 +6,7 @@ inherit meson
 
 DESCRIPTION="WPE backend designed for Linux desktop systems"
 HOMEPAGE="https://wpewebkit.org/"
-SRC_URI="https://api.github.com/repos/Igalia/WPEBackend-fdo/tarball/1.12.1 -> wpebackend-fdo-1.12.1.tar.gz"
+SRC_URI="https://api.github.com/repos/Igalia/WPEBackend-fdo/tarball/1.14.0 -> wpebackend-fdo-1.14.0.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="1.0"
