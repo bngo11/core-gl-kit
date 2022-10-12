@@ -16,7 +16,7 @@ async def generate(hub, **pkginfo):
 
 	if version:
 		final_name = f"wayland-protocols-{version}.tar.xz"
-		url = f"https://wayland.freedesktop.org/releases/wayland-protocols-{version}.tar.xz"
+		url = f"https://gitlab.freedesktop.org/wayland/wayland-protocols/-/releases/{version}/downloads/wayland-protocols-{version}.tar.xz"
 		ebuild = hub.pkgtools.ebuild.BreezyBuild(
 			**pkginfo,
 			version=version,
