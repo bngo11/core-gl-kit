@@ -14,7 +14,6 @@ IUSE_INPUT_DEVICES="
 	input_devices_elographics
 	input_devices_evdev
 	input_devices_joystick
-	input_devices_keyboard
 	input_devices_libinput
 	input_devices_mouse
 	input_devices_vmmouse
@@ -60,7 +59,6 @@ PDEPEND="
 								 >=x11-drivers/xf86-input-evdev-2.10.6
 							   )
 	input_devices_joystick?    ( >=x11-drivers/xf86-input-joystick-1.6.3 )
-	input_devices_keyboard?    ( x11-drivers/xf86-input-keyboard )
 	input_devices_libinput?    (
 								 >=x11-base/xorg-server-${PV}[udev]
 								 >=x11-drivers/xf86-input-libinput-0.27.1
