@@ -6,7 +6,7 @@ inherit autotools linux-info flag-o-matic
 DESCRIPTION="Driver for xorg-server"
 KEYWORDS="*"
 IUSE=" "
-SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-input-mouse/-/archive/xf86-input-mouse-1.9.3/xf86-input-mouse-xf86-input-mouse-1.9.3.tar.bz2 -> xf86-input-mouse-1.9.3-gitlab.tar.bz2"
+SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-input-mouse/-/archive/xf86-input-mouse-1.9.4/xf86-input-mouse-xf86-input-mouse-1.9.4.tar.bz2 -> xf86-input-mouse-1.9.4-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
 DEPEND="

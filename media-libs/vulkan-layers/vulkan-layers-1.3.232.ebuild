@@ -19,7 +19,7 @@ BDEPEND=">=dev-util/cmake-3.10.2"
 DEPEND="
 	=dev-util/glslang-1.3.231.1_p20221013*
 	=dev-util/spirv-tools-2022.2_p20221012*
-	=dev-util/vulkan-headers-1.3.232*
+	=dev-util/vulkan-headers-1.3.233*
 	${PYTHON_DEPS}
 	dev-cpp/robin-hood-hashing
 	wayland? ( dev-libs/wayland:= )
