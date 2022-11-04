@@ -26,7 +26,7 @@ DEPEND="
 		x11-libs/libXrandr:=
 	)
 "
-PDEPEND="layers? ( =media-libs/vulkan-layers-1.3.232*:= )"
+PDEPEND="layers? ( =media-libs/vulkan-layers-1.3.233*:= )"
 
 post_src_unpack() {
 	mv "${WORKDIR}"/KhronosGroup-Vulkan-Loader-* ${S} || die
