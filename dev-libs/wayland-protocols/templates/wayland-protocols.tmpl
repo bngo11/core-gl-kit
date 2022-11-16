@@ -7,11 +7,12 @@ inherit meson
 DESCRIPTION="Wayland protocol files"
 HOMEPAGE="https://wayland.freedesktop.org/"
 SRC_URI="{{artifacts[0].src_uri}}"
-KEYWORDS="*"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="*"
 IUSE="test"
+
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -27,6 +28,5 @@ src_configure() {
 	local emesonargs=(
 		$(meson_use test tests)
 	)
-
 	meson_src_configure
 }

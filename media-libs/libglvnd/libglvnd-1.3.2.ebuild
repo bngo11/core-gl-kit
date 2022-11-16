@@ -16,11 +16,9 @@ S=${WORKDIR}/${PN}-v${PV}
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="test +X"
-RESTRICT="!test? ( test )"
+IUSE="+asm +egl +gles +gles2 +glx +headers tls +X"
 
-BDEPEND="${PYTHON_DEPS}
-	test? ( X? ( ${VIRTUALX_DEPEND} ) )"
+BDEPEND="${PYTHON_DEPS}"
 RDEPEND="
 	!media-libs/mesa[-glvnd(-)]
 	!media-libs/mesa-gl-headers
@@ -28,6 +26,7 @@ RDEPEND="
 	X? (
 		x11-libs/libX11
 		x11-libs/libXext
+		x11-proto/glproto
 	)"
 DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )"
@@ -39,18 +38,23 @@ src_prepare() {
 
 src_configure() {
 	local emesonargs=(
-		$(meson_feature X x11)
-		$(meson_feature X glx)
+		-Dasm=$(usex asm enabled disabled)
+		-Degl=$(usex egl true false)
+		-Dgles1=$(usex gles true false)
+		-Dgles2=$(usex gles2 true false)
+		-Dglx=$(usex glx enabled disabled)
+		-Dheaders=$(usex headers true false)
+		-Dtls=$(usex tls enabled disabled)
+		-Dx11=$(usex X enabled disabled)
 	)
-
 	use elibc_musl && emesonargs+=( -Dtls=disabled )
 	meson_src_configure
 }
 
-multilib_src_test() {
-	if use X; then
-		virtx meson_src_test
-	else
-		meson_src_test
-	fi
+src_compile() {
+	meson_src_compile
+}
+
+src_install() {
+	meson_src_install
 }

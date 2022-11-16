@@ -8,7 +8,7 @@ inherit cmake-utils python-any-r1
 
 DESCRIPTION="Vulkan Validation Layers"
 HOMEPAGE="https://github.com/KhronosGroup/Vulkan-ValidationLayers"
-SRC_URI="https://github.com/KhronosGroup/Vulkan-ValidationLayers/tarball/9a31edfa80d5c5c85b238a0ec3963320fdfc91f0 -> Vulkan-ValidationLayers-1.3.233-9a31edf.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/Vulkan-ValidationLayers/tarball/33cb30099fd1e1f68b818834f4a1af23694f9aab -> Vulkan-ValidationLayers-1.3.234-33cb300.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -19,7 +19,7 @@ BDEPEND=">=dev-util/cmake-3.10.2"
 DEPEND="
 	=dev-util/glslang-1.3.231.1_p20221013*
 	=dev-util/spirv-tools-2022.2_p20221012*
-	=dev-util/vulkan-headers-1.3.233*
+	=dev-util/vulkan-headers-1.3.234*
 	${PYTHON_DEPS}
 	dev-cpp/robin-hood-hashing
 	wayland? ( dev-libs/wayland:= )

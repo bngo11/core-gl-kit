@@ -6,12 +6,13 @@ inherit meson
 
 DESCRIPTION="Wayland protocol files"
 HOMEPAGE="https://wayland.freedesktop.org/"
-SRC_URI="https://gitlab.freedesktop.org/wayland/wayland-protocols/-/releases/1.27/downloads/wayland-protocols-1.27.tar.xz -> wayland-protocols-1.27.tar.xz"
-KEYWORDS="*"
+SRC_URI="https://gitlab.freedesktop.org/wayland/wayland-protocols/-/releases/1.29/downloads/wayland-protocols-1.29.tar.xz -> wayland-protocols-1.29.tar.xz"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="*"
 IUSE="test"
+
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -27,6 +28,5 @@ src_configure() {
 	local emesonargs=(
 		$(meson_use test tests)
 	)
-
 	meson_src_configure
 }

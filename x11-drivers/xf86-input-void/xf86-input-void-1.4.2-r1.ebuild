@@ -6,7 +6,7 @@ inherit autotools linux-info flag-o-matic
 DESCRIPTION="Driver for xorg-server"
 KEYWORDS="*"
 IUSE=" "
-SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-input-void/-/archive/xf86-input-void-1.4.1/xf86-input-void-xf86-input-void-1.4.1.tar.bz2 -> xf86-input-void-1.4.1-gitlab.tar.bz2"
+SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-input-void/-/archive/xf86-input-void-1.4.2/xf86-input-void-xf86-input-void-1.4.2.tar.bz2 -> xf86-input-void-1.4.2-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
 DEPEND="
