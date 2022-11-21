@@ -6,11 +6,11 @@ inherit meson
 
 DESCRIPTION="EGLStream-based Wayland external platform"
 HOMEPAGE="https://github.com/NVIDIA/egl-wayland"
-SRC_URI="https://github.com/NVIDIA/egl-wayland/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/NVIDIA/egl-wayland/archive/refs/tags/${PV}.tar.gz -> ${P}-r1.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="*"
 
 RDEPEND="
 	dev-libs/wayland
@@ -19,7 +19,8 @@ DEPEND="
 	${RDEPEND}
 	dev-libs/wayland-protocols
 	gui-libs/eglexternalplatform
-	>=media-libs/libglvnd-1.3.4"
+	>=media-libs/libglvnd-1.3.4
+	x11-libs/libdrm"
 BDEPEND="dev-util/wayland-scanner"
 
 PATCHES=(
@@ -29,10 +30,8 @@ PATCHES=(
 src_install() {
 	meson_src_install
 
-	if has_version "<x11-drivers/nvidia-drivers-495"; then
-		insinto /usr/share/egl/egl_external_platform.d
-		doins "${FILESDIR}"/10_nvidia_wayland.json
-	fi
+	insinto /usr/share/egl/egl_external_platform.d
+	doins "${FILESDIR}"/10_nvidia_wayland.json
 }
 
 pkg_postinst() {

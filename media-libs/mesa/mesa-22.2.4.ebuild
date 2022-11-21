@@ -419,8 +419,8 @@ src_configure() {
 		-Dglx=$(usex X dri disabled)
 		-Dshared-glapi=enabled
 		-Ddri3=enabled
-		$(meson_use egl)
-		$(meson_use gbm)
+		$(meson_feature egl)
+		$(meson_feature gbm)
 		$(meson_use glvnd)
 		$(meson_feature gles1)
 		$(meson_feature gles2)
