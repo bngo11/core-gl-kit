@@ -3,7 +3,7 @@
 EAPI=7
 
 XORG_DOC=doc
-XORG_MULTILIB=yes
+XORG_MULTILIB=no
 XORG_TARBALL_SUFFIX=xz
 inherit toolchain-funcs xorg-3
 
@@ -17,7 +17,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=x11-libs/libxcb-1.11.1[${MULTILIB_USEDEP}]
+	>=x11-libs/libxcb-1.11.1
 	x11-misc/compose-tables
 
 	!<xfce-base/xfce4-settings-4.16.3
