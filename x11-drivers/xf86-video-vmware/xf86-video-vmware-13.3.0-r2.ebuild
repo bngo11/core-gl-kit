@@ -9,6 +9,9 @@ IUSE=" "
 SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-vmware/-/archive/xf86-video-vmware-13.3.0/xf86-video-vmware-xf86-video-vmware-13.3.0.tar.bz2 -> xf86-video-vmware-13.3.0-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
+PATCHES=(
+	"$FILESDIR"/xf86-video-vmware-gcc12.patch
+)
 DEPEND="
 	x11-base/xorg-proto
 	x11-base/xorg-server
