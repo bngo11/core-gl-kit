@@ -6,7 +6,7 @@ inherit autotools linux-info flag-o-matic
 DESCRIPTION="Driver for xorg-server"
 KEYWORDS="*"
 IUSE=" "
-SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-input-joystick/-/archive/xf86-input-joystick-1.6.3/xf86-input-joystick-xf86-input-joystick-1.6.3.tar.bz2 -> xf86-input-joystick-1.6.3-gitlab.tar.bz2"
+SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-input-joystick/-/archive/xf86-input-joystick-1.6.4/xf86-input-joystick-xf86-input-joystick-1.6.4.tar.bz2 -> xf86-input-joystick-1.6.4-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
 DEPEND="

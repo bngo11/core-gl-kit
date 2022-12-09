@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/cmake-3.10.2 dev-util/ninja >=dev-util/cmake-3.9.6
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND==dev-util/glslang-1.3.231.1_p20221013* =dev-util/spirv-tools-2022.2_p20221110* =dev-util/vulkan-headers-1.3.236* || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10 ) dev-cpp/robin-hood-hashing wayland? ( dev-libs/wayland:= ) X? ( x11-libs/libX11:= x11-libs/libXrandr:= )
+DEPEND==dev-util/glslang-1.3.231.1_p20221206* =dev-util/spirv-tools-2022.4_p20221205* =dev-util/vulkan-headers-1.3.237* || ( dev-lang/python:3.8 dev-lang/python:3.9 dev-lang/python:3.7 dev-lang/python:3.10 ) dev-cpp/robin-hood-hashing wayland? ( dev-libs/wayland:= ) X? ( x11-libs/libX11:= x11-libs/libXrandr:= )
 DESCRIPTION=Vulkan Validation Layers
 EAPI=7
 HOMEPAGE=https://github.com/KhronosGroup/Vulkan-ValidationLayers
@@ -8,6 +8,6 @@ IUSE=wayland X
 KEYWORDS=*
 LICENSE=Apache-2.0
 SLOT=0
-SRC_URI=https://github.com/KhronosGroup/Vulkan-ValidationLayers/tarball/69a57f610c04cf8b7ae2f704bfcea51b41760a16 -> Vulkan-ValidationLayers-1.3.236-69a57f6.tar.gz
+SRC_URI=https://github.com/KhronosGroup/Vulkan-ValidationLayers/tarball/a54a9aaab3da831ff692193d30cc90f272714b57 -> Vulkan-ValidationLayers-1.3.237-a54a9aa.tar.gz
 _eclasses_=cmake-utils	77cd39e6009811bf97a59d91ffd5b54f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	a09389deba2c0a7108b581e02c7cecbf	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-any-r1	54a3178500786b0a7ede4a23b7f2a6ad	python-utils-r1	32393cac272daca4c136cc44e6005b67	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	xdg-utils	14d00d009167652b1fa363e55effe213
-_md5_=9f76b87bf0674cbdd850e1e92b1f4686
+_md5_=fbf5637c9804e7af8ff7803eeb170850
