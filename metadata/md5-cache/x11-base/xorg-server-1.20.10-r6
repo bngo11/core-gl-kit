@@ -13,5 +13,5 @@ REQUIRED_USE=!minimal? ( || ( dmx kdrive xephyr xnest xorg xvfb ) ) elogind? ( u
 RESTRICT=!test? ( test )
 SLOT=0/1.20.10
 SRC_URI=https://www.x.org/releases/individual/xserver/xorg-server-1.20.10.tar.gz
-_eclasses_=autotools	5223f703a2e9c194fcda924f8c4b6baf	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	a09389deba2c0a7108b581e02c7cecbf	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	xorg-3	212a355607d8ee9cf75132010ead368c
+_eclasses_=autotools	5223f703a2e9c194fcda924f8c4b6baf	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	d0939f99dd528dd0c5ec25284877bf5c	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	xorg-3	212a355607d8ee9cf75132010ead368c
 _md5_=a4a94a0c0d331ed517e0c85fee3c65da
