@@ -5,7 +5,7 @@ inherit autotools linux-info flag-o-matic
 
 DESCRIPTION="Driver for xorg-server"
 KEYWORDS="*"
-IUSE=" "
+IUSE=" dri"
 SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-mga/-/archive/xf86-video-mga-2.0.1/xf86-video-mga-xf86-video-mga-2.0.1.tar.bz2 -> xf86-video-mga-2.0.1-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
@@ -16,6 +16,7 @@ DEPEND="
 	sys-devel/m4
 	>=x11-misc/util-macros-1.18
 	
+	dri? ( x11-base/xorg-server[-minimal] x11-libs/libdrm )
 "
 
 RDEPEND="

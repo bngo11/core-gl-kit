@@ -5,7 +5,7 @@ inherit autotools linux-info flag-o-matic
 
 DESCRIPTION="Driver for xorg-server"
 KEYWORDS="*"
-IUSE=" "
+IUSE=" dri"
 SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-tdfx/-/archive/xf86-video-tdfx-1.5.0/xf86-video-tdfx-xf86-video-tdfx-1.5.0.tar.bz2 -> xf86-video-tdfx-1.5.0-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
@@ -16,6 +16,7 @@ DEPEND="
 	sys-devel/m4
 	>=x11-misc/util-macros-1.18
 	
+	dri? ( x11-base/xorg-server[-minimal] x11-libs/libdrm )
 "
 
 RDEPEND="

@@ -6,12 +6,9 @@ inherit autotools linux-info flag-o-matic
 DESCRIPTION="Driver for xorg-server"
 KEYWORDS="*"
 IUSE=" "
-SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-vmware/-/archive/xf86-video-vmware-13.3.0/xf86-video-vmware-xf86-video-vmware-13.3.0.tar.bz2 -> xf86-video-vmware-13.3.0-gitlab.tar.bz2"
+SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-vmware/-/archive/xf86-video-vmware-13.4.0/xf86-video-vmware-xf86-video-vmware-13.4.0.tar.bz2 -> xf86-video-vmware-13.4.0-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
-PATCHES=(
-	"$FILESDIR"/xf86-video-vmware-gcc12.patch
-)
 DEPEND="
 	x11-base/xorg-proto
 	x11-base/xorg-server
@@ -20,6 +17,8 @@ DEPEND="
 	>=x11-misc/util-macros-1.18
 	>=x11-base/xorg-server-1.20.10-r2
 
+	x11-base/xorg-server[-minimal]
+	x11-libs/libdrm
 "
 
 RDEPEND="

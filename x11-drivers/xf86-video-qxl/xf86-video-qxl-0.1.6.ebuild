@@ -7,12 +7,9 @@ inherit autotools linux-info flag-o-matic python-single-r1
 DESCRIPTION="Driver for xorg-server"
 KEYWORDS="*"
 IUSE="xspice "
-SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-qxl/-/archive/xf86-video-qxl-0.1.5/xf86-video-qxl-xf86-video-qxl-0.1.5.tar.bz2 -> xf86-video-qxl-0.1.5-gitlab.tar.bz2"
+SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-qxl/-/archive/xf86-video-qxl-0.1.6/xf86-video-qxl-xf86-video-qxl-0.1.6.tar.bz2 -> xf86-video-qxl-0.1.6-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
-PATCHES=(
-	"$FILESDIR"/xf86-video-qxl-use-boolean-instead-of-bool.patch
-)
 DEPEND="
 	x11-base/xorg-proto
 	x11-base/xorg-server

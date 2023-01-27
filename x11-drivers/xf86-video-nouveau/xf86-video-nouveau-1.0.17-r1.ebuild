@@ -16,6 +16,8 @@ DEPEND="
 	sys-devel/m4
 	>=x11-misc/util-macros-1.18
 	
+	x11-base/xorg-server[-minimal]
+	x11-libs/libdrm
 "
 
 RDEPEND="
