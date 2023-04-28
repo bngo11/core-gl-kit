@@ -1,48 +1,16 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit meson
 
 DESCRIPTION="X.Org combined protocol headers"
 HOMEPAGE="https://cgit.freedesktop.org/xorg/proto/xorgproto/"
-
-GITHUB_REPO="xorg-xorgproto"
-GITHUB_USER="freedesktop"
-GITHUB_TAG="8c8bbb903410e39140727867a26bbe501f77de8f"
-SRC_URI="https://www.github.com/freedesktop/xorg-xorgproto/tarball/8c8bbb903410e39140727867a26bbe501f77de8f -> xorg-proto-8c8bbb903410e39140727867a26bbe501f77de8f.tar.gz"
+SRC_URI="https://gitlab.freedesktop.org/xorg/proto/xorgproto/-/archive/824001c947cb1962209c6a8f2c63c2637877220d/xorgproto-824001c947cb1962209c6a8f2c63c2637877220d.tar.gz -> xorg-proto-2022.2.tar.gz"
 KEYWORDS="*"
-
-src_unpack() {
-	unpack ${A}
-	mv "${WORKDIR}/${GITHUB_USER}-${GITHUB_REPO}"-??????? "${S}" || die
-}
 
 LICENSE="GPL-2 MIT"
 SLOT="0"
-
-src_configure() {
-	local emesonargs=(
-		--datadir="${EPREFIX}/usr/share"
-		-Dlegacy=false
-	)
-	meson_src_configure
-}
-
-src_compile() {
-	meson_src_compile
-}
-
-src_install() {
-	meson_src_install
-	DOCS=(
-		AUTHORS
-		PM_spec
-		$(set +f; echo COPYING-*)
-		$(set +f; echo *.txt | grep -v meson.txt)
-	)
-	einstalldocs
-}
 
 RDEPEND="
     =x11-proto/applewmproto-1.4.2*:0/stub
@@ -52,7 +20,7 @@ RDEPEND="
     =x11-proto/dmxproto-2.3.1*:0/stub
     =x11-proto/dpmsproto-1.2*:0/stub
     =x11-proto/dri2proto-2.8*:0/stub
-    =x11-proto/dri3proto-1.2*:0/stub
+    =x11-proto/dri3proto-1.3*:0/stub
     =x11-proto/evieproto-1.1.1*:0/stub
     =x11-proto/fixesproto-6.0*:0/stub
     =x11-proto/fontcacheproto-0.1.3*:0/stub
@@ -82,4 +50,34 @@ RDEPEND="
     =x11-proto/xf86vidmodeproto-2.3.1*:0/stub
     =x11-proto/xineramaproto-1.2.1*:0/stub
     =x11-proto/xproto-7.0.33*:0/stub
-    =x11-proto/xproxymngproto-1.0.3*:0/stub"
+    =x11-proto/xproxymngproto-1.0.3*:0/stub
+    =x11-proto/xwaylandproto-1.0*:0/stub"
+
+post_src_unpack() {
+	if [ ! -d "${S}" ]; then
+		mv xorgproto-824001c947cb1962209c6a8f2c63c2637877220d "${S}" || die
+	fi
+}
+
+src_configure() {
+	local emesonargs=(
+		--datadir="${EPREFIX}/usr/share"
+		-Dlegacy=false
+	)
+	meson_src_configure
+}
+
+src_compile() {
+	meson_src_compile
+}
+
+src_install() {
+	meson_src_install
+	DOCS=(
+		AUTHORS
+		PM_spec
+		$(set +f; echo COPYING-*)
+		$(set +f; echo *.txt | grep -v meson.txt)
+	)
+	einstalldocs
+}

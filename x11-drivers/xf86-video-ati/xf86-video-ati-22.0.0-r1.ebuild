@@ -6,7 +6,7 @@ inherit autotools linux-info flag-o-matic
 DESCRIPTION="Driver for xorg-server"
 KEYWORDS="*"
 IUSE="+glamor udev "
-SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-ati/-/archive/xf86-video-ati-19.1.0/xf86-video-ati-xf86-video-ati-19.1.0.tar.bz2 -> xf86-video-ati-19.1.0-gitlab.tar.bz2"
+SRC_URI="https://gitlab.freedesktop.org/xorg/driver/xf86-video-ati/-/archive/xf86-video-ati-22.0.0/xf86-video-ati-xf86-video-ati-22.0.0.tar.bz2 -> xf86-video-ati-22.0.0-gitlab.tar.bz2"
 SLOT="0"
 S="$WORKDIR/${PN}-${P}"
 PATCHES=(

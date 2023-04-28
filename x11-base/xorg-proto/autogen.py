@@ -85,32 +85,46 @@ async def generate(hub, **pkginfo):
 	"""
 
 	xorgproto_implementations = []
+	json_data = await hub.pkgtools.fetch.get_page("https://gitlab.freedesktop.org/api/v4/projects/788/repository/tags", is_json=True)
+	version = None
 
-	template_args = dict(
-		**pkginfo,
-		version="2022.1",
-		GITHUB_REPO="xorg-xorgproto",
-		GITHUB_USER="freedesktop",
-		GITHUB_TAG="8c8bbb903410e39140727867a26bbe501f77de8f",
-	)
-	cpvr = "{cat}/{name}-{version}".format(**template_args)
-	url = "https://www.github.com/{GITHUB_USER}/{GITHUB_REPO}/tarball/{GITHUB_TAG}".format(**template_args)
-	final_name = "{name}-{GITHUB_TAG}.tar.gz".format(**template_args)
-	artifact = hub.pkgtools.ebuild.Artifact(url=url, final_name=final_name)
+	for item in json_data:
+		try:
+			version = item['name']
+			commit_id = item['commit']['id']
+			break
 
-	xorgproto_implementations.append((template_args, cpvr, artifact))
+		except (IndexError, AttributeError, KeyError):
+			continue
+
+	if version and version != 'xorgproto-2019.2' and commit_id:
+		n, ver = version.split('-', 1)
+
+		template_args = dict(
+			**pkginfo,
+			version=ver,
+			GITLAB_GROUP="xorg/proto",
+			GITLAB_PROJ="xorgproto",
+			GITLAB_TAG=commit_id,
+		)
+		cpvr = "{cat}/{name}-{version}".format(**template_args)
+		url = "https://gitlab.freedesktop.org/{GITLAB_GROUP}/{GITLAB_PROJ}/-/archive/{GITLAB_TAG}/{GITLAB_PROJ}-{GITLAB_TAG}.tar.gz".format(**template_args)
+		final_name = "{name}-{version}.tar.gz".format(**template_args)
+		artifact = hub.pkgtools.ebuild.Artifact(url=url, final_name=final_name)
+
+		xorgproto_implementations.append((template_args, cpvr, artifact))
 
 	template_args = dict(
 		**pkginfo,
 		version="2019.2",
 		revision=2,
-		GITHUB_REPO="xorg-xorgproto",
-		GITHUB_USER="freedesktop",
-		GITHUB_TAG="f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f",
+		GITLAB_GROUP="xorg/proto",
+		GITLAB_PROJ="xorgproto",
+		GITLAB_TAG="f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f",
 	)
 	cpvr = "{cat}/{name}-{version}-r{revision}".format(**template_args)
-	url = "https://www.github.com/{GITHUB_USER}/{GITHUB_REPO}/tarball/{GITHUB_TAG}".format(**template_args)
-	final_name = "{name}-{GITHUB_TAG}.tar.gz".format(**template_args)
+	url = "https://gitlab.freedesktop.org/{GITLAB_GROUP}/{GITLAB_PROJ}/-/archive/{GITLAB_TAG}/{GITLAB_PROJ}-{GITLAB_TAG}.tar.gz".format(**template_args)
+	final_name = "{name}-{GITLAB_TAG}.tar.gz".format(**template_args)
 	artifact = hub.pkgtools.ebuild.Artifact(url=url, final_name=final_name)
 
 	xorgproto_implementations.append((template_args, cpvr, artifact))
