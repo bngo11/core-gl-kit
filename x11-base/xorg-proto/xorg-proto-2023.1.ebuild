@@ -6,7 +6,7 @@ inherit meson
 
 DESCRIPTION="X.Org combined protocol headers"
 HOMEPAGE="https://cgit.freedesktop.org/xorg/proto/xorgproto/"
-SRC_URI="https://gitlab.freedesktop.org/xorg/proto/xorgproto/-/archive/824001c947cb1962209c6a8f2c63c2637877220d/xorgproto-824001c947cb1962209c6a8f2c63c2637877220d.tar.gz -> xorg-proto-2022.2.tar.gz"
+SRC_URI="https://gitlab.freedesktop.org/xorg/proto/xorgproto/-/archive/16ca6a5c5963e41f15e8415453f6b33d02ec44bd/xorgproto-16ca6a5c5963e41f15e8415453f6b33d02ec44bd.tar.gz -> xorg-proto-2023.1.tar.gz"
 KEYWORDS="*"
 
 LICENSE="GPL-2 MIT"
@@ -22,7 +22,7 @@ RDEPEND="
     =x11-proto/dri2proto-2.8*:0/stub
     =x11-proto/dri3proto-1.3*:0/stub
     =x11-proto/evieproto-1.1.1*:0/stub
-    =x11-proto/fixesproto-6.0*:0/stub
+    =x11-proto/fixesproto-6.1*:0/stub
     =x11-proto/fontcacheproto-0.1.3*:0/stub
     =x11-proto/fontsproto-2.1.3*:0/stub
     =x11-proto/glproto-1.4.17*:0/stub
@@ -55,7 +55,7 @@ RDEPEND="
 
 post_src_unpack() {
 	if [ ! -d "${S}" ]; then
-		mv xorgproto-824001c947cb1962209c6a8f2c63c2637877220d "${S}" || die
+		mv xorgproto-16ca6a5c5963e41f15e8415453f6b33d02ec44bd "${S}" || die
 	fi
 }
 
