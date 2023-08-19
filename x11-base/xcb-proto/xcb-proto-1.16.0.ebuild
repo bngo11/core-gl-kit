@@ -9,7 +9,7 @@ inherit python-r1 xorg-2
 
 DESCRIPTION="X C-language Bindings protocol headers"
 HOMEPAGE="https://xcb.freedesktop.org/"
-SRC_URI="https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.15.2.tar.xz -> xcb-proto-1.15.2.tar.xz"
+SRC_URI="https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.16.0.tar.xz -> xcb-proto-1.16.0.tar.xz"
 
 KEYWORDS="*"
 IUSE=""
