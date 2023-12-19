@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="A free OpenGL utility toolkit, the open-sourced alternative to the GLUT library"
 HOMEPAGE="http://freeglut.sourceforge.net/"
-SRC_URI="https://github.com/FreeGLUTProject/freeglut/tarball/63c0e78d84ecbfcf8accd8bac04404427899053b -> freeglut-3.4.0-63c0e78.tar.gz"
+SRC_URI="https://github.com/freeglut/freeglut/tarball/63c0e78d84ecbfcf8accd8bac04404427899053b -> freeglut-3.4.0-63c0e78.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -27,7 +27,7 @@ DEPEND="${RDEPEND}
 BDEPEND="virtual/pkgconfig"
 
 post_src_unpack() {
-	mv ${WORKDIR}/FreeGLUTProject-freeglut-* "${S}" || die
+	mv ${WORKDIR}/freeglut-freeglut-* "${S}" || die
 }
 
 src_configure() {
