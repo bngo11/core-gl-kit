@@ -5,7 +5,7 @@ EAPI=7
 DESCRIPTION="Video Acceleration (VA) API for Linux"
 HOMEPAGE="https://01.org/linuxmedia/vaapi"
 
-SRC_URI="https://github.com/intel/libva/releases/download/${PV}/${P}.tar.bz2"
+SRC_URI="{{src_uri}}"
 KEYWORDS="*"
 
 LICENSE="MIT"
@@ -43,18 +43,6 @@ REQUIRED_USE="|| ( drm wayland X )
 	opengl? ( X )"
 
 DOCS=( NEWS )
-
-MULTILIB_WRAPPED_HEADERS=(
-/usr/include/va/va_backend_glx.h
-/usr/include/va/va_x11.h
-/usr/include/va/va_dri2.h
-/usr/include/va/va_dricommon.h
-/usr/include/va/va_glx.h
-)
-
-src_prepare() {
-	default
-}
 
 src_configure() {
 	local myeconfargs=(
