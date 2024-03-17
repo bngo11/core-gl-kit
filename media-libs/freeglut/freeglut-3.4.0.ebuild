@@ -13,6 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="*"
 IUSE="debug static-libs"
+S="${WORKDIR}/freeglut-freeglut-63c0e78"
 
 # enabling GLES support seems to cause build failures
 RDEPEND=">=virtual/glu-9.0-r1
@@ -25,10 +26,6 @@ RDEPEND=">=virtual/glu-9.0-r1
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto"
 BDEPEND="virtual/pkgconfig"
-
-post_src_unpack() {
-	mv ${WORKDIR}/freeglut-freeglut-* "${S}" || die
-}
 
 src_configure() {
 	local mycmakeargs=(
