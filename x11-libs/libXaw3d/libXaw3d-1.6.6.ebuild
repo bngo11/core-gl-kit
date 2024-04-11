@@ -1,12 +1,13 @@
-# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
-inherit xorg-2
+EAPI=7
+inherit xorg-3
 
 DESCRIPTION="X.Org Xaw3d library"
+HOMEPAGE="https://gitlab.freedesktop.org/xorg/lib/libxaw3d"
+SRC_URI="https://www.x.org/releases/individual/lib/libXaw3d-1.6.6.tar.xz -> libXaw3d-1.6.6.tar.xz"
 
-KEYWORDS="alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ppc ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~x64-solaris ~x86-solaris"
+KEYWORDS="*"
 IUSE="unicode xpm"
 
 RDEPEND="x11-libs/libX11
@@ -26,5 +27,5 @@ pkg_setup() {
 		--enable-gray-stipples
 	)
 
-	xorg-2_pkg_setup
+	xorg-3_pkg_setup
 }
