@@ -11,7 +11,7 @@ inherit python-any-r1 xorg-3
 
 DESCRIPTION="X C-language Bindings library"
 HOMEPAGE="https://xcb.freedesktop.org/"
-SRC_URI="https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.16.1.tar.xz -> libxcb-1.16.1.tar.xz"
+SRC_URI="https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.17.0.tar.xz -> libxcb-1.17.0.tar.xz"
 KEYWORDS="*"
 IUSE="doc selinux test +xkb"
 SLOT="0/1.12"
