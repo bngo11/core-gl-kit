@@ -8,12 +8,10 @@ DESCRIPTION="A high-quality and portable font engine"
 HOMEPAGE="https://www.freetype.org/"
 IUSE="X +adobe-cff bindist brotli bzip2 +cleartype_hinting debug doc fontforge harfbuzz infinality png static-libs utils"
 
-SRC_URI="mirror://sourceforge/freetype/${P/_/}.tar.xz
-	mirror://nongnu/freetype/${P/_/}.tar.xz
-	utils?	( mirror://sourceforge/freetype/ft2demos-${PV}.tar.xz
-		mirror://nongnu/freetype/ft2demos-${PV}.tar.xz )
-	doc?	( mirror://sourceforge/freetype/${PN}-doc-${PV}.tar.xz
-		mirror://nongnu/freetype/${PN}-doc-${PV}.tar.xz )"
+SRC_URI="https://download.savannah.gnu.org/releases/freetype/freetype-2.13.2.tar.xz -> freetype-2.13.2.tar.xz
+	utils?	( https://download.savannah.gnu.org/releases/freetype/ft2demos-2.13.2.tar.xz -> ft2demos-2.13.2.tar.xz )
+	doc?	( https://download.savannah.gnu.org/releases/freetype/freetype-doc-2.13.2.tar.xz -> freetype-doc-2.13.2.tar.xz )
+"
 KEYWORDS="*"
 
 LICENSE="|| ( FTL GPL-2+ )"
