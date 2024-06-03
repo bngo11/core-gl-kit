@@ -9,4 +9,4 @@ RDEPEND==x11-proto/applewmproto-1.4.2*:0/stub =x11-proto/bigreqsproto-1.1.2*:0/s
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/xorg/proto/xorgproto/-/archive/f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f/xorgproto-f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f.tar.gz -> xorg-proto-f61f9a3ee1aa77ebcc67730cda9bfde88e4e9c5f.tar.gz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	meson	2fbe03e3b496f82fd941bcdb9d351c91	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-utils-r1	d3f9ec72badd0291b655682d67876adc	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=c3258eb94705183dee2f05aa520c5f25
+_md5_=11a793f658dee7e684176550bb2c47bc

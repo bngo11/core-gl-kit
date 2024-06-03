@@ -54,8 +54,16 @@ RDEPEND="
     =x11-proto/xwaylandproto-1.0*:0/stub"
 
 post_src_unpack() {
+	shadir="${WORKDIR}"/xorgproto-67469711055522b8adb2d795b01e7ba98cb8816c
+	shortdir="${WORKDIR}"/xorgproto-2024.1
+
 	if [ ! -d "${S}" ]; then
-		mv xorgproto-67469711055522b8adb2d795b01e7ba98cb8816c "${S}" || die
+		if [ -d "${shadir}" ]; then
+			mv "${shadir}" "${S}" || die
+		else if [ -d "${shortdir}" ]; then
+			mv "${shortdir}" "${S}" || die
+		fi
+		fi
 	fi
 }
 

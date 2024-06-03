@@ -2,7 +2,6 @@
 
 EAPI=7
 
-XORG_TARBALL_SUFFIX="gz"
 inherit xorg-3 toolchain-funcs
 
 DESCRIPTION="X.Org X servers"

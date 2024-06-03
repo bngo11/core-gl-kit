@@ -5,7 +5,8 @@ inherit xorg-3
 
 DESCRIPTION="X.Org XTrap library"
 HOMEPAGE="https://gitlab.freedesktop.org/xorg/lib/libxtrap"
-SRC_URI="https://www.x.org/releases/individual/lib/libXTrap-1.0.1.tar.gz -> libXTrap-1.0.1.tar.gz"
+SRC_URI="https://www.x.org/releases/individual/lib/libXTrap-1.0.1.tar.gz -> libXTrap-1.0.1.tar.gz
+"
 
 KEYWORDS="*"
 IUSE=""

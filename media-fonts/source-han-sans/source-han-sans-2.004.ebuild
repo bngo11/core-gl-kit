@@ -7,10 +7,10 @@ inherit font
 DESCRIPTION="Pan-CJK OpenType/CFF font family"
 HOMEPAGE="https://github.com/adobe-fonts/source-han-sans/"
 SRC_URI="
-	l10n_zh-CN? ( https://github.com/adobe-fonts/source-han-sans/releases/download/2.004R/SourceHanSansCN.zip -> SourceHanSansCN.zip )
-	l10n_ja? ( https://github.com/adobe-fonts/source-han-sans/releases/download/2.004R/SourceHanSansJP.zip -> SourceHanSansJP.zip )
-	l10n_ko? ( https://github.com/adobe-fonts/source-han-sans/releases/download/2.004R/SourceHanSansKR.zip -> SourceHanSansKR.zip )
-	l10n_zh-TW? ( https://github.com/adobe-fonts/source-han-sans/releases/download/2.004R/SourceHanSansTW.zip -> SourceHanSansTW.zip )"
+	l10n_ja? (  )
+	l10n_ko? (  )
+	l10n_zh-CN? (  )
+	l10n_zh-TW? (  )"
 
 LICENSE="Apache-2.0"
 SLOT="0"

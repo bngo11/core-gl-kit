@@ -8,12 +8,7 @@ SRC_URI="https://github.com/NVIDIA/eglexternalplatform/archive/${PV}.tar.gz -> $
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
-
-src_prepare() {
-	default
-	sed -i "/^inc/s@=@=${EPREFIX}@" eglexternalplatform.pc || die
-}
+KEYWORDS="*"
 
 src_install() {
 	insinto /usr/$(get_libdir)/pkgconfig

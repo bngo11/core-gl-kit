@@ -5,7 +5,8 @@ inherit xorg-3
 
 DESCRIPTION="X.Org Xaw3d library"
 HOMEPAGE="https://gitlab.freedesktop.org/xorg/lib/libxaw3d"
-SRC_URI="https://www.x.org/releases/individual/lib/libXaw3d-1.6.6.tar.xz -> libXaw3d-1.6.6.tar.xz"
+SRC_URI="https://www.x.org/releases/individual/lib/libXaw3d-1.6.6.tar.xz -> libXaw3d-1.6.6.tar.xz
+"
 
 KEYWORDS="*"
 IUSE="unicode xpm"
