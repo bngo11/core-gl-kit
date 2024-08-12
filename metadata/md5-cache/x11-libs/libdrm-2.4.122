@@ -10,6 +10,6 @@ LICENSE=MIT
 RDEPEND=video_cards_intel? ( >=x11-libs/libpciaccess-0.13.1-r1:= )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://dri.freedesktop.org/libdrm/libdrm-2.4.118.tar.xz
+SRC_URI=https://dri.freedesktop.org/libdrm/libdrm-2.4.122.tar.xz -> libdrm-2.4.122.tar.xz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	meson	2fbe03e3b496f82fd941bcdb9d351c91	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-utils-r1	c57a84554d3dca7c828e40d877b2dd7d	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=d99af0e3233694baba7d3ee390d54a16
+_md5_=40615ef8205d765ba01091e7b7f448f0

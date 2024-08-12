@@ -6,7 +6,7 @@ inherit meson
 
 DESCRIPTION="X.Org libdrm library"
 HOMEPAGE="https://dri.freedesktop.org/"
-SRC_URI="https://dri.freedesktop.org/libdrm/${P}.tar.xz"
+SRC_URI="{{ src_uri }}"
 KEYWORDS="next"
 VIDEO_CARDS="amdgpu exynos freedreno intel nouveau omap radeon tegra vc4 vivante vmware"
 for card in ${VIDEO_CARDS}; do
