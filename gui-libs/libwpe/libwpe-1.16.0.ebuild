@@ -15,7 +15,7 @@ IUSE=""
 KEYWORDS="*"
 
 RDEPEND="
-	media-libs/mesa[egl]
+	media-libs/mesa
 	x11-libs/libxkbcommon
 "
 DEPEND="${RDEPEND}"

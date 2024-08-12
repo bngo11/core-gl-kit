@@ -15,7 +15,7 @@ IUSE=""
 KEYWORDS="*"
 
 RDEPEND="
-	media-libs/mesa[egl]
+	media-libs/mesa
 	dev-libs/glib:2
 	>=dev-libs/wayland-1.10
 	>=gui-libs/libwpe-1.6:1.0

@@ -15,7 +15,7 @@ LICENSE="MIT"
 SLOT="0"
 IUSE="+X"
 
-RDEPEND="media-libs/mesa[egl]"
+RDEPEND="media-libs/mesa"
 DEPEND="${PYTHON_DEPS}
 	${RDEPEND}
 	virtual/opengl
