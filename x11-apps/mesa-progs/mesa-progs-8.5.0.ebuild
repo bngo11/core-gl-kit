@@ -18,7 +18,7 @@ IUSE="egl gles2"
 KEYWORDS="*"
 
 RDEPEND="
-	media-libs/mesa[egl?,gles2?]
+	media-libs/mesa[gles2?]
 	virtual/opengl
 	x11-libs/libX11"
 DEPEND="${RDEPEND}
