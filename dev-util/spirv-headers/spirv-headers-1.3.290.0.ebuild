@@ -13,5 +13,5 @@ SLOT="0"
 KEYWORDS="*"
 
 post_src_unpack() {
-	mv "${WORKDIR}"/SPIRV-Headers-* "${S}" || die
+	mv "${WORKDIR}"/*SPIRV-Headers-* "${S}" || die
 }
