@@ -20,6 +20,7 @@ DEPEND="
 	=dev-util/glslang-14.3.0*
 	=dev-util/spirv-tools-2024.3*
 	=dev-util/vulkan-headers-1.3.295*
+	=media-libs/vulkan-utils-1.3.295*
 	${PYTHON_DEPS}
 	dev-cpp/robin-hood-hashing
 	wayland? ( dev-libs/wayland:= )

@@ -1,0 +1,32 @@
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=7
+
+CMAKE_ECLASS="cmake"
+PYTHON_COMPAT=( {{python_compat}} )
+inherit cmake-utils python-any-r1
+
+DESCRIPTION="A library standardize layer configuration code for various SDK layer deliverables."
+HOMEPAGE="https://github.com/{{github_user}}/{{github_repo}}"
+SRC_URI="{{artifacts[0].src_uri}}"
+
+LICENSE="Apache-2.0"
+SLOT="0"
+KEYWORDS="*"
+IUSE="wayland X"
+
+BDEPEND=">=dev-util/cmake-3.10.2"
+DEPEND="{% for dep in deps %}
+	{{ dep }}{% endfor %}
+	${PYTHON_DEPS}
+	dev-cpp/robin-hood-hashing
+	wayland? ( dev-libs/wayland:= )
+	X? (
+		x11-libs/libX11:=
+		x11-libs/libXrandr:=
+	)
+"
+
+post_src_unpack() {
+	mv "${WORKDIR}"/*{{github_user}}-{{github_repo}}-* "${S}" || die
+}
