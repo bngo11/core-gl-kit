@@ -17,8 +17,8 @@ IUSE="wayland X"
 
 BDEPEND=">=dev-util/cmake-3.10.2"
 DEPEND="
-	=dev-util/glslang-1.3.261.1_p20240729*
-	=dev-util/spirv-tools-2024.3_p20240730*
+	=dev-util/glslang-14.3.0*
+	=dev-util/spirv-tools-2024.3*
 	=dev-util/vulkan-headers-1.3.295*
 	${PYTHON_DEPS}
 	dev-cpp/robin-hood-hashing

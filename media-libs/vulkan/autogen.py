@@ -45,13 +45,14 @@ catpkgs = {
 		'cat': 'dev-util',
 		'name': 'spirv-headers',
 		'query': 'tags',
-		'select': "sdk-.*",
+		'select': "vulkan-sdk-.*",
 	},
 	'glslang': {
 		'cat': 'dev-util',
 		'name': 'glslang',
 		'query': 'tags',
-		'select': "sdk-.*",
+		# 'select': "Release .*",
+		'deps': ['SPIRV-Tools'],
 	},
 }
 
@@ -76,9 +77,11 @@ async def generate(hub, **pkginfo):
 			**pkginfo,
 		}
 
+		'''
 		if name == "glslang":
 			revision = { "1.3.231.0_p20221013": 1 }
 			catpkg_info['revision'] = revision
+		'''
 
 		catpkg_info.update(catpkgs[name])
 		print(f"Processing {catpkg_info['name']}")
@@ -88,10 +91,12 @@ async def generate(hub, **pkginfo):
 			# this is a top-level ebuild and it determines the versions for subsequent ebuilds
 			await process_json_deps(**catpkg_info)
 
+		'''
 		# Sometimes a git commit is specified in the dependencies file
 		if 'commit' in catpkg_info:
 			# So, find the latest release or tag and then append a suffix reflecting the commit's date
 			catpkg_info.update(await process_commit_pkg(**catpkg_info))
+		'''
 
 		# Finally, update the catpkgs object with all the details from here
 		catpkgs[name].update(catpkg_info)
