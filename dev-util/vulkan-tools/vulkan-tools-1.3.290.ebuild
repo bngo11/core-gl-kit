@@ -7,7 +7,7 @@ inherit cmake-utils python-any-r1
 
 DESCRIPTION="Official Vulkan Tools and Utilities for Windows, Linux, Android, and MacOS"
 HOMEPAGE="https://github.com/KhronosGroup/Vulkan-Tools"
-SRC_URI="https://github.com/KhronosGroup/Vulkan-Tools/tarball/4c63e845962ff3b197855f3ae4907a47d0863f5a -> Vulkan-Tools-1.3.295-4c63e84.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/Vulkan-Tools/tarball/b47676a03827fc0c287409b243b1fd62886e79c0 -> Vulkan-Tools-1.3.290-b47676a.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"

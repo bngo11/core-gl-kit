@@ -28,10 +28,10 @@ post_src_unpack() {
 }
 
 src_configure() {
->---local mycmakeargs=(
->--->----DENABLE_PCH=OFF
->--->----DALLOW_EXTERNAL_SPIRV_TOOLS=ON
->---)
+	local mycmakeargs=(
+	-DENABLE_PCH=OFF
+	-DALLOW_EXTERNAL_SPIRV_TOOLS=ON
+	)
 
->---cmake_src_configure
+	cmake_src_configure
 }

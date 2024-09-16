@@ -8,7 +8,7 @@ inherit cmake-utils python-any-r1
 
 DESCRIPTION="A library standardize layer configuration code for various SDK layer deliverables."
 HOMEPAGE="https://github.com/KhronosGroup/Vulkan-Utility-Libraries"
-SRC_URI="https://github.com/KhronosGroup/Vulkan-Utility-Libraries/tarball/fbb4db92c6b2ac09003b2b8e5ceb978f4f2dda71 -> Vulkan-Utility-Libraries-1.3.295-fbb4db9.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/Vulkan-Utility-Libraries/tarball/5f26cf65a18bc89a8e3d6569c14314b6fdac8d4d -> Vulkan-Utility-Libraries-1.3.290-5f26cf6.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -17,7 +17,7 @@ IUSE="wayland X"
 
 BDEPEND=">=dev-util/cmake-3.10.2"
 DEPEND="
-	=dev-util/vulkan-headers-1.3.295*
+	=dev-util/vulkan-headers-1.3.290*
 	${PYTHON_DEPS}
 	dev-cpp/robin-hood-hashing
 	wayland? ( dev-libs/wayland:= )

@@ -13,6 +13,7 @@ catpkgs = {
 		'select': "v.*",
 		'parsedeps': True,
 		'deps': ['glslang', 'SPIRV-Tools', 'Vulkan-Headers', 'Vulkan-Utility-Libraries'],
+		'version': '1.3.290',
 	},
 	'Vulkan-Tools': {
 		'cat' : 'dev-util',
@@ -20,6 +21,7 @@ catpkgs = {
 		'query': 'tags',
 		'select': "v.*",
 		'parsedeps': True,
+		'version': '1.3.290',
 	},
 	'Vulkan-Loader': {
 		'cat': 'media-libs',
@@ -28,12 +30,14 @@ catpkgs = {
 		'select': "v.*",
 		'deps': ['Vulkan-Headers'],
 		'pdeps': ['Vulkan-ValidationLayers'],
+		'version': '1.3.290',
 	},
 	'Vulkan-Headers': {
 		'cat': 'dev-util',
 		'name': 'vulkan-headers',
 		'query': 'tags',
 		'select': "v.*",
+		'version': '1.3.290',
 	},
 	'Vulkan-Utility-Libraries': {
 		'cat' : 'media-libs',
@@ -41,6 +45,7 @@ catpkgs = {
 		'query': 'tags',
 		'select': "v.*",
 		'deps': ['Vulkan-Headers'],
+		'version': '1.3.290',
 	},
 	'SPIRV-Tools': {
 		'cat': 'dev-util',
@@ -53,6 +58,7 @@ catpkgs = {
 		'name': 'spirv-headers',
 		'query': 'tags',
 		'select': "vulkan-sdk-.*",
+		'version': '1.3.290.0',
 	},
 	'glslang': {
 		'cat': 'dev-util',
