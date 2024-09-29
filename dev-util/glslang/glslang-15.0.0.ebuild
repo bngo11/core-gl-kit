@@ -8,7 +8,7 @@ inherit cmake python-any-r1
 
 DESCRIPTION="Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator"
 HOMEPAGE="https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/ https://github.com/KhronosGroup/glslang"
-SRC_URI="https://github.com/KhronosGroup/glslang/tarball/fa9c3deb49e035a8abcabe366f26aac010f6cbfb -> glslang-14.3.0-fa9c3de.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/glslang/tarball/46ef757e048e760b46601e6e77ae0cb72c97bd2f -> glslang-15.0.0-46ef757.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
