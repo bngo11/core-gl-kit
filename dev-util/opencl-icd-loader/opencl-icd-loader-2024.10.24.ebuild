@@ -6,7 +6,7 @@ inherit cmake multibuild prefix
 
 DESCRIPTION="Official Khronos OpenCL ICD Loader"
 HOMEPAGE="https://github.com/KhronosGroup/OpenCL-ICD-Loader"
-SRC_URI="https://github.com/KhronosGroup/OpenCL-ICD-Loader/tarball/861b68b290e76d08e7241608479c16431f529945 -> OpenCL-ICD-Loader-2024.05.08-861b68b.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/OpenCL-ICD-Loader/tarball/5907ac1114079de4383cecddf1c8640e3f52f92b -> OpenCL-ICD-Loader-2024.10.24-5907ac1.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
