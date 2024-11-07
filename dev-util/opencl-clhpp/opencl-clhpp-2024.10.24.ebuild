@@ -6,7 +6,7 @@ inherit cmake-utils python-any-r1
 
 DESCRIPTION="OpenCL Host API C++ bindings."
 HOMEPAGE="https://github.com/KhronosGroup/OpenCL-CLHPP"
-SRC_URI="https://github.com/KhronosGroup/OpenCL-CLHPP/tarball/a029285574d7262dc1baa62706c777603b453f8a -> OpenCL-CLHPP-2024.05.08-a029285.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/OpenCL-CLHPP/tarball/f3804e516fadfbca55c9a02a0f9b895aa1c4100f -> OpenCL-CLHPP-2024.10.24-f3804e5.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
