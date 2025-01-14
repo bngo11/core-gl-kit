@@ -6,7 +6,7 @@ MY_PN=SPIRV-Tools
 PYTHON_COMPAT=( python3+ )
 inherit cmake-utils python-any-r1
 
-SRC_URI="https://github.com/KhronosGroup/SPIRV-Tools/tarball/0cfe9e7219148716dfd30b37f4d21753f098707a -> SPIRV-Tools-2024.3-0cfe9e7.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/SPIRV-Tools/tarball/4d2f0b40bfe290dea6c6904dafdf7fd8328ba346 -> SPIRV-Tools-1.4.304.0-4d2f0b4.tar.gz"
 
 DESCRIPTION="Provides an API and commands for processing SPIR-V modules"
 HOMEPAGE="https://github.com/KhronosGroup/SPIRV-Tools"
@@ -19,7 +19,7 @@ KEYWORDS="*"
 RESTRICT="test"
 
 COMMON_DEPEND="
-	=dev-util/spirv-headers-1.3.290.0*
+	=dev-util/spirv-headers-1.4.304.0*
 "
 DEPEND="${COMMON_DEPEND}"
 RDEPEND=""

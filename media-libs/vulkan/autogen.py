@@ -50,15 +50,17 @@ catpkgs = {
 	'SPIRV-Tools': {
 		'cat': 'dev-util',
 		'name': 'spirv-tools',
-		'query': 'releases',
+		'query': 'tags',
 		'deps': ['SPIRV-Headers'],
+		'select': "vulkan-sdk-.*",
+		'version': '1.4.304.0',
 	},
 	'SPIRV-Headers': {
 		'cat': 'dev-util',
 		'name': 'spirv-headers',
 		'query': 'tags',
 		'select': "vulkan-sdk-.*",
-		'version': '1.3.290.0',
+		'version': '1.4.304.0',
 	},
 	'glslang': {
 		'cat': 'dev-util',
