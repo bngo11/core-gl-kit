@@ -4,7 +4,7 @@ EAPI=7
 
 inherit cmake
 
-SRC_URI="https://github.com/zeux/volk/archive/vulkan-sdk-1.3.290.tar.gz -> volk-1.3.290.tar.gz"
+SRC_URI="https://github.com/zeux/volk/archive/vulkan-sdk-1.4.304.tar.gz -> volk-1.4.304.tar.gz"
 KEYWORDS="*"
 S="${WORKDIR}/${PN}-vulkan-sdk-${PV}"
 
