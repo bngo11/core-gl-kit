@@ -17,6 +17,8 @@ EGO_SUM=(
 	"github.com/cpuguy83/go-md2man/v2 v2.0.5"
 	"github.com/cpuguy83/go-md2man/v2 v2.0.5/go.mod"
 	"github.com/creack/pty v1.1.9/go.mod"
+	"github.com/cyphar/filepath-securejoin v0.4.1"
+	"github.com/cyphar/filepath-securejoin v0.4.1/go.mod"
 	"github.com/davecgh/go-spew v1.1.0/go.mod"
 	"github.com/davecgh/go-spew v1.1.1"
 	"github.com/davecgh/go-spew v1.1.1/go.mod"
@@ -41,9 +43,11 @@ EGO_SUM=(
 	"github.com/moby/sys/symlink v0.3.0"
 	"github.com/moby/sys/symlink v0.3.0/go.mod"
 	"github.com/mrunalp/fileutils v0.5.0/go.mod"
+	"github.com/opencontainers/runc v1.2.5"
+	"github.com/opencontainers/runc v1.2.5/go.mod"
 	"github.com/opencontainers/runtime-spec v1.0.3-0.20220825212826-86290f6a00fb/go.mod"
-	"github.com/opencontainers/runtime-spec v1.2.0"
-	"github.com/opencontainers/runtime-spec v1.2.0/go.mod"
+	"github.com/opencontainers/runtime-spec v1.2.1"
+	"github.com/opencontainers/runtime-spec v1.2.1/go.mod"
 	"github.com/opencontainers/runtime-tools v0.9.1-0.20221107090550-2e043c6bd626"
 	"github.com/opencontainers/runtime-tools v0.9.1-0.20221107090550-2e043c6bd626/go.mod"
 	"github.com/opencontainers/selinux v1.9.1/go.mod"
@@ -86,8 +90,8 @@ EGO_SUM=(
 	"golang.org/x/sys v0.0.0-20191026070338-33540a1f6037/go.mod"
 	"golang.org/x/sys v0.0.0-20191115151921-52ab43148777/go.mod"
 	"golang.org/x/sys v0.0.0-20220715151400-c0bba94af5f8/go.mod"
-	"golang.org/x/sys v0.26.0"
-	"golang.org/x/sys v0.26.0/go.mod"
+	"golang.org/x/sys v0.28.0"
+	"golang.org/x/sys v0.28.0/go.mod"
 	"gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod"
 	"gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c"
 	"gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c/go.mod"
@@ -98,22 +102,22 @@ EGO_SUM=(
 	"gopkg.in/yaml.v3 v3.0.1/go.mod"
 	"sigs.k8s.io/yaml v1.3.0"
 	"sigs.k8s.io/yaml v1.3.0/go.mod"
-	"tags.cncf.io/container-device-interface v0.8.0"
-	"tags.cncf.io/container-device-interface v0.8.0/go.mod"
+	"tags.cncf.io/container-device-interface v0.8.1"
+	"tags.cncf.io/container-device-interface v0.8.1/go.mod"
 	"tags.cncf.io/container-device-interface/specs-go v0.8.0"
 	"tags.cncf.io/container-device-interface/specs-go v0.8.0/go.mod"
 )
 
 go-module_set_globals
 
-SRC_URI="https://github.com/NVIDIA/nvidia-container-toolkit/tarball/9b69590c7428470a72f2ae05f826412976af1395 -> nvidia-container-toolkit-1.17.4-9b69590.tar.gz
-https://direct.funtoo.org/65/0f/c9/650fc9e79ecbc0cd98b6ac0bfdabed6cebe6cbc9fdf90b00313e219fe00cd22ea35c14f94202151655812f05f8f9495dc3a50e30d2690a893c1f877e197d29d4 -> nvidia-container-toolkit-1.17.4-funtoo-go-bundle-5797c82b27414aeba8a32d341870d81c9ddee697414811d69d6aba8166c3fe09f21ede522906fb84c0a7fc2340faf78a9b9e5ef68fca9589f55a2e7bf2cbcbae.tar.gz"
+SRC_URI="https://github.com/NVIDIA/nvidia-container-toolkit/tarball/f785e908a7f72149f8912617058644fd84e38cde -> nvidia-container-toolkit-1.17.5-f785e90.tar.gz
+https://direct.funtoo.org/78/fc/86/78fc86eef0e4b17cb154b5198c84c080be664b58647aff6fd6c0cdd214bce1bd8dd96acbdade546b101eaf7e4c6bc5313c475e04082d0f29b29ac69abd992d6e -> nvidia-container-toolkit-1.17.5-funtoo-go-bundle-07ce351244e84a5a570f9c0b791a2033616890f4e630e09e49c2646a7e17867f6187185aa240d5cc2e9b0d4559accd431e3fb1892ec37dae795cf8205f88cdff.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="*"
 IUSE=""
-S="${WORKDIR}/NVIDIA-nvidia-container-toolkit-9b69590"
+S="${WORKDIR}/NVIDIA-nvidia-container-toolkit-f785e90"
 
 RDEPEND="app-emulation/libnvidia-container"
 
