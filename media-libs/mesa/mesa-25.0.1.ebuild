@@ -108,9 +108,7 @@ RDEPEND="${RDEPEND}
 LLVM_MAX_SLOT="18"
 LLVM_DEPSTR="
 	|| (
-		sys-devel/llvm:13
-		sys-devel/llvm:12
-		sys-devel/llvm:11
+		sys-devel/llvm:18
 	)
 	<sys-devel/llvm-$((LLVM_MAX_SLOT + 1)):=
 "
