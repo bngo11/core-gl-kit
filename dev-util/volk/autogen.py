@@ -31,7 +31,7 @@ async def generate(hub, **pkginfo):
 
 	if version and url:
 	'''
-	version = "1.4.304"
+	version = "1.4.309"
 	url = f"https://github.com/zeux/volk/archive/vulkan-sdk-{version}.tar.gz"
 	fn = f"volk-{version}.tar.gz"
 	ebuild = hub.pkgtools.ebuild.BreezyBuild(
