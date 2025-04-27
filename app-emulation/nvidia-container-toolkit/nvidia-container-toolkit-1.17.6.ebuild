@@ -43,8 +43,8 @@ EGO_SUM=(
 	"github.com/moby/sys/symlink v0.3.0"
 	"github.com/moby/sys/symlink v0.3.0/go.mod"
 	"github.com/mrunalp/fileutils v0.5.0/go.mod"
-	"github.com/opencontainers/runc v1.2.5"
-	"github.com/opencontainers/runc v1.2.5/go.mod"
+	"github.com/opencontainers/runc v1.2.6"
+	"github.com/opencontainers/runc v1.2.6/go.mod"
 	"github.com/opencontainers/runtime-spec v1.0.3-0.20220825212826-86290f6a00fb/go.mod"
 	"github.com/opencontainers/runtime-spec v1.2.1"
 	"github.com/opencontainers/runtime-spec v1.2.1/go.mod"
@@ -58,8 +58,9 @@ EGO_SUM=(
 	"github.com/pkg/diff v0.0.0-20210226163009-20ebb0f2a09e/go.mod"
 	"github.com/pmezard/go-difflib v1.0.0"
 	"github.com/pmezard/go-difflib v1.0.0/go.mod"
-	"github.com/rogpeppe/go-internal v1.9.0"
 	"github.com/rogpeppe/go-internal v1.9.0/go.mod"
+	"github.com/rogpeppe/go-internal v1.11.0"
+	"github.com/rogpeppe/go-internal v1.11.0/go.mod"
 	"github.com/russross/blackfriday/v2 v2.1.0"
 	"github.com/russross/blackfriday/v2 v2.1.0/go.mod"
 	"github.com/sirupsen/logrus v1.8.1/go.mod"
@@ -110,14 +111,14 @@ EGO_SUM=(
 
 go-module_set_globals
 
-SRC_URI="https://github.com/NVIDIA/nvidia-container-toolkit/tarball/f785e908a7f72149f8912617058644fd84e38cde -> nvidia-container-toolkit-1.17.5-f785e90.tar.gz
-https://direct.funtoo.org/78/fc/86/78fc86eef0e4b17cb154b5198c84c080be664b58647aff6fd6c0cdd214bce1bd8dd96acbdade546b101eaf7e4c6bc5313c475e04082d0f29b29ac69abd992d6e -> nvidia-container-toolkit-1.17.5-funtoo-go-bundle-07ce351244e84a5a570f9c0b791a2033616890f4e630e09e49c2646a7e17867f6187185aa240d5cc2e9b0d4559accd431e3fb1892ec37dae795cf8205f88cdff.tar.gz"
+SRC_URI="https://github.com/NVIDIA/nvidia-container-toolkit/tarball/3a5f5227cd3f4e15a22cfd3f25acaf3f6aeabdf9 -> nvidia-container-toolkit-1.17.6-3a5f522.tar.gz
+https://direct.funtoo.org/19/4b/dd/194bddb8047701cc9985a30e47d8ecd1693fdc93eb23ef30136fac2dd6614bcfaa7d0b91610ee4d4c07b59bb7e4afb9c694f14593f9e85bdc540acaef4c16153 -> nvidia-container-toolkit-1.17.6-funtoo-go-bundle-23a9eec029439b9efd0a250b3dae15aa79215c232f1ab039b88222e42bfaa205ee89c5672847c320649854c1038c5096d5d0028117502b34e43de9af7d86fda9.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="*"
 IUSE=""
-S="${WORKDIR}/NVIDIA-nvidia-container-toolkit-f785e90"
+S="${WORKDIR}/NVIDIA-nvidia-container-toolkit-3a5f522"
 
 RDEPEND="app-emulation/libnvidia-container"
 
