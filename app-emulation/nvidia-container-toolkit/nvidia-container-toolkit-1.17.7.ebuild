@@ -8,8 +8,8 @@ DESCRIPTION="NVIDIA container runtime toolkit"
 HOMEPAGE="https://github.com/NVIDIA/nvidia-container-toolkit"
 
 EGO_SUM=(
-	"github.com/!n!v!i!d!i!a/go-nvlib v0.6.1"
-	"github.com/!n!v!i!d!i!a/go-nvlib v0.6.1/go.mod"
+	"github.com/!n!v!i!d!i!a/go-nvlib v0.7.2"
+	"github.com/!n!v!i!d!i!a/go-nvlib v0.7.2/go.mod"
 	"github.com/!n!v!i!d!i!a/go-nvml v0.12.4-1"
 	"github.com/!n!v!i!d!i!a/go-nvml v0.12.4-1/go.mod"
 	"github.com/blang/semver/v4 v4.0.0"
@@ -40,6 +40,8 @@ EGO_SUM=(
 	"github.com/kr/text v0.2.0"
 	"github.com/kr/text v0.2.0/go.mod"
 	"github.com/mndrix/tap-go v0.0.0-20171203230836-629fa407e90b/go.mod"
+	"github.com/moby/sys/reexec v0.1.0"
+	"github.com/moby/sys/reexec v0.1.0/go.mod"
 	"github.com/moby/sys/symlink v0.3.0"
 	"github.com/moby/sys/symlink v0.3.0/go.mod"
 	"github.com/mrunalp/fileutils v0.5.0/go.mod"
@@ -70,8 +72,8 @@ EGO_SUM=(
 	"github.com/stretchr/testify v1.2.2/go.mod"
 	"github.com/stretchr/testify v1.3.0/go.mod"
 	"github.com/stretchr/testify v1.7.0/go.mod"
-	"github.com/stretchr/testify v1.9.0"
-	"github.com/stretchr/testify v1.9.0/go.mod"
+	"github.com/stretchr/testify v1.10.0"
+	"github.com/stretchr/testify v1.10.0/go.mod"
 	"github.com/syndtr/gocapability v0.0.0-20200815063812-42c35b437635"
 	"github.com/syndtr/gocapability v0.0.0-20200815063812-42c35b437635/go.mod"
 	"github.com/urfave/cli v1.19.1/go.mod"
@@ -111,14 +113,14 @@ EGO_SUM=(
 
 go-module_set_globals
 
-SRC_URI="https://github.com/NVIDIA/nvidia-container-toolkit/tarball/3a5f5227cd3f4e15a22cfd3f25acaf3f6aeabdf9 -> nvidia-container-toolkit-1.17.6-3a5f522.tar.gz
-https://direct.funtoo.org/19/4b/dd/194bddb8047701cc9985a30e47d8ecd1693fdc93eb23ef30136fac2dd6614bcfaa7d0b91610ee4d4c07b59bb7e4afb9c694f14593f9e85bdc540acaef4c16153 -> nvidia-container-toolkit-1.17.6-funtoo-go-bundle-23a9eec029439b9efd0a250b3dae15aa79215c232f1ab039b88222e42bfaa205ee89c5672847c320649854c1038c5096d5d0028117502b34e43de9af7d86fda9.tar.gz"
+SRC_URI="https://github.com/NVIDIA/nvidia-container-toolkit/tarball/41256d590fd2bd9a2a8e7c22f32b894bd1c3dda9 -> nvidia-container-toolkit-1.17.7-41256d5.tar.gz
+https://direct.funtoo.org/2c/2c/b6/2c2cb6f0b47e48678c327fc3666a94c143282ceaccfb4fe5f1779a2afff3987b1bad279e2655aac5e29dbeb11a17b0939285201e100ebc73cdc249ef8cb93df9 -> nvidia-container-toolkit-1.17.7-funtoo-go-bundle-e905fe78966adcb9465b529faaa1ae85cc2da3f6373de474aa271b3d5284aaa10e7b53292a37a6a752af28b2f3fe22b439b1f704da53df58559d7519bd0aab1d.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="*"
 IUSE=""
-S="${WORKDIR}/NVIDIA-nvidia-container-toolkit-3a5f522"
+S="${WORKDIR}/NVIDIA-nvidia-container-toolkit-41256d5"
 
 RDEPEND="app-emulation/libnvidia-container"
 
