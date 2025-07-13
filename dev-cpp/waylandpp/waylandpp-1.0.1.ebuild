@@ -6,7 +6,7 @@ inherit cmake
 
 DESCRIPTION="Wayland C++ bindings"
 HOMEPAGE="https://github.com/NilsBrause/waylandpp"
-SRC_URI="https://github.com/NilsBrause/waylandpp/archive/1.0.0.tar.gz -> waylandpp-1.0.0.tar.gz"
+SRC_URI="https://github.com/NilsBrause/waylandpp/archive/1.0.1.tar.gz -> waylandpp-1.0.1.tar.gz"
 KEYWORDS="*"
 
 LICENSE="MIT"
