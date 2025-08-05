@@ -1,12 +1,11 @@
-BDEPEND=>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.17:1.17 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-DEFINED_PHASES=configure install prepare setup
+BDEPEND=>=dev-util/meson-0.48.2 >=dev-util/ninja-1.7.2
+DEFINED_PHASES=compile configure install test
 DEPEND=x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 x11-base/xorg-server[-minimal] x11-libs/libdrm
 DESCRIPTION=Driver for xorg-server
 EAPI=7
-IUSE=kernel_linux
 KEYWORDS=*
 RDEPEND=x11-base/xorg-proto x11-base/xorg-server >=sys-devel/libtool-2.2.6a sys-devel/m4 >=x11-misc/util-macros-1.18 x11-base/xorg-server[-minimal] x11-libs/libdrm x11-libs/libpciaccess x11-libs/libdrm[video_cards_amdgpu] x11-base/xorg-server[glamor(+),-minimal]
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/xorg/driver/xf86-video-amdgpu/-/archive/xf86-video-amdgpu-25.0.0/xf86-video-amdgpu-xf86-video-amdgpu-25.0.0.tar.bz2 -> xf86-video-amdgpu-25.0.0-gitlab.tar.bz2
-_eclasses_=autotools	619846d0d85ed5d3334692c0215a603e	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	d0939f99dd528dd0c5ec25284877bf5c	libtool	f143db5a74ccd9ca28c1234deffede96	linux-info	c90a203b1c14cfa77bd3e37a0e96c955	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=456edc6ebafacad0a13a248fe089ae9e
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	meson	598868603bb7b26fd2f41660674f7be3	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-utils-r1	c57a84554d3dca7c828e40d877b2dd7d	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=9e75a8e693efea7d8ac7f4a2f593b175
