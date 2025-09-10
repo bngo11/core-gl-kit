@@ -7,7 +7,7 @@ inherit meson python-any-r1 readme.gentoo-r1
 
 DESCRIPTION="A library for configuring and customizing font access"
 HOMEPAGE="https://fontconfig.org/"
-SRC_URI="https://fontconfig.org/release/${P}.tar.xz"
+SRC_URI="https://gitlab.freedesktop.org/api/v4/projects/890/packages/generic/fontconfig/${PV}/fontconfig-${PV}.tar.xz"
 
 LICENSE="MIT"
 SLOT="1.0"
@@ -59,12 +59,13 @@ PATCHES=(
 	# bug #130466 + make liberation default
 	"${FILESDIR}"/${PN}-2.14.0-latin-update.patch
 	# Avoid test failure (bubblewrap doesn't work within sandbox)
-	"${FILESDIR}"/${PN}-2.14.0-skip-bubblewrap-tests.patch
-	# Fix aliasing (bug #940923)
-	"${FILESDIR}"/${PN}-2.15.0-aliasing.patch
+	"${FILESDIR}"/${PN}-2.17.0-skip-bubblewrap-tests.patch
+	# Avoid network access and unpackaged pytest-tap
+	"${FILESDIR}"/${PN}-2.17.0-network-test.patch
+	# Fix build failure with -ggdb3
+	"${FILESDIR}"/${PN}-2.17.0-macro-preprocess.patch
 
 	# Patches from upstream (can usually be removed with next version bump)
-	"${FILESDIR}"/${PN}-2.14.2-math-fabs.patch
 )
 
 DOC_CONTENTS="Please make fontconfig configuration changes using
@@ -212,7 +213,8 @@ pkg_postinst() {
 
 	if [[ -z ${ROOT} ]] ; then
 		ebegin "Creating global font cache for ${ABI}"
-		"${EPREFIX}"/usr/bin/${CHOST}-fc-cache -srf
+		#"${EPREFIX}"/usr/bin/${CHOST}-fc-cache -srf
+		"${EPREFIX}"/usr/bin/fc-cache -srf
 		eend $?
 	fi
 }
