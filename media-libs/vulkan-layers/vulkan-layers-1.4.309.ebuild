@@ -17,7 +17,7 @@ IUSE="wayland X"
 
 BDEPEND=">=dev-util/cmake-3.10.2"
 DEPEND="
-	=dev-util/glslang-15.4.0*
+	=dev-util/glslang-16.0.0*
 	=dev-util/spirv-tools-1.4.309.0*
 	=dev-util/vulkan-headers-1.4.309*
 	=media-libs/vulkan-utils-1.4.309*
