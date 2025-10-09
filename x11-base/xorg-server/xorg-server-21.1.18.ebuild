@@ -4,14 +4,15 @@ EAPI=7
 
 XORG_TARBALL_SUFFIX="xz"
 XORG_EAUTORECONF="no"
-inherit xorg-3 meson
+inherit flag-o-matic xorg-3 meson
+EGIT_REPO_URI="https://gitlab.freedesktop.org/xorg/xserver.git"
 
 DESCRIPTION="X.Org X servers"
 SLOT="0/${PV}"
 KEYWORDS="*"
 
 IUSE_SERVERS="xephyr xnest xorg xvfb"
-IUSE="${IUSE_SERVERS} debug +elogind minimal selinux +suid systemd test +udev unwind xcsecurity"
+IUSE="${IUSE_SERVERS} debug +elogind minimal selinux suid systemd test +udev unwind xcsecurity"
 RESTRICT="!test? ( test )"
 
 CDEPEND="
@@ -19,7 +20,6 @@ CDEPEND="
 	dev-libs/libbsd
 	dev-libs/openssl:0=
 	>=x11-apps/iceauth-1.0.2
-	>=x11-apps/rgb-1.0.3
 	>=x11-apps/xauth-1.0.3
 	x11-apps/xkbcomp
 	>=x11-libs/libdrm-2.4.89
@@ -27,16 +27,20 @@ CDEPEND="
 	>=x11-libs/libXau-1.0.4
 	>=x11-libs/libXdmcp-1.0.2
 	>=x11-libs/libXfont2-2.0.1
-	>=x11-libs/libxcvt-0.1.0
 	>=x11-libs/libxkbfile-1.0.4
 	>=x11-libs/libxshmfence-1.1
 	>=x11-libs/pixman-0.27.2
 	>=x11-misc/xbitmaps-1.0.1
 	>=x11-misc/xkeyboard-config-2.4.1-r3
-	>=x11-libs/libXext-1.0.5
-	x11-libs/libXv
+	xorg? (
+		>=x11-libs/libxcvt-0.1.0
+	)
+	xnest? (
+		>=x11-libs/libXext-1.0.99.4
+		>=x11-libs/libX11-1.1.5
+	)
 	xephyr? (
-		x11-libs/libxcb[xkb]
+		x11-libs/libxcb
 		x11-libs/xcb-util
 		x11-libs/xcb-util-image
 		x11-libs/xcb-util-keysyms
@@ -44,8 +48,6 @@ CDEPEND="
 		x11-libs/xcb-util-wm
 	)
 	!minimal? (
-		>=x11-libs/libX11-1.1.5
-		>=x11-libs/libXext-1.0.5
 		>=media-libs/mesa-18[X(+),egl(+),gbm(+)]
 		>=media-libs/libepoxy-1.5.4[X,egl(+)]
 	)
@@ -62,21 +64,21 @@ CDEPEND="
 	elogind? (
 		sys-apps/dbus
 		sys-auth/elogind[pam]
-		sys-libs/pam[elogind]
+		sys-auth/pambase
 	)
 	!!x11-drivers/nvidia-drivers[-libglvnd(+)]
 "
 DEPEND="${CDEPEND}
-	>=x11-base/xorg-proto-2018.4
+	>=x11-base/xorg-proto-2021.4.99.2
 	>=x11-libs/xtrans-1.3.5
 	media-fonts/font-util
+	test? ( >=x11-libs/libxcvt-0.1.0 )
 "
 RDEPEND="${CDEPEND}
 	selinux? ( sec-policy/selinux-xserver )
 	xorg? ( >=x11-apps/xinit-1.3.3-r1 )
 "
 BDEPEND="
-	sys-devel/flex
 "
 PDEPEND="
 	xorg? ( >=x11-base/xorg-drivers-$(ver_cut 1-2) )"
@@ -95,17 +97,20 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.12-unloadsubmodule.patch
 	# needed for new eselect-opengl, bug #541232
 	"${FILESDIR}"/${PN}-1.18-support-multiple-Files-sections.patch
+	# pending upstream backport, bug #885763
+	"${FILESDIR}"/${PN}-21.1.10-c99.patch
 )
 
 src_configure() {
+	# bug #835653
+	use x86 && replace-flags -Os -O2
+
 	# localstatedir is used for the log location; we need to override the default
 	#	from ebuild.sh
 	# sysconfdir is used for the xorg.conf location; same applies
-
 	local emesonargs=(
 		--localstatedir "${EPREFIX}/var"
 		--sysconfdir "${EPREFIX}/etc/X11"
-		--buildtype $(usex debug debug plain)
 		-Db_ndebug=$(usex debug false true)
 		$(meson_use !minimal dri1)
 		$(meson_use !minimal dri2)
@@ -132,6 +137,11 @@ src_configure() {
 		-Dsha1=libcrypto
 		-Dxkb_output_dir="${EPREFIX}/var/lib/xkb"
 	)
+
+	if [[ ${PV} == 9999 ]] ; then
+		# Gone in 21.1.x, but not in master.
+		emesonargs+=( -Dxwayland=false )
+	fi
 
 	if use systemd || use elogind; then
 		emesonargs+=(

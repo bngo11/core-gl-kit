@@ -1,14 +1,14 @@
-# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
+XORG_TARBALL_SUFFIX="xz"
 XORG_MULTILIB=yes
-inherit xorg-2 toolchain-funcs
+inherit xorg-3 toolchain-funcs
 
 DESCRIPTION="X.Org X Toolkit Intrinsics library"
 
-KEYWORDS="alpha amd64 arm arm64 hppa ia64 ~mips ppc ppc64 s390 ~sh sparc x86 ~ppc-aix ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris ~x86-winnt"
+KEYWORDS="*"
 IUSE="test"
 
 RDEPEND="x11-base/xorg-proto
@@ -20,5 +20,5 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	tc-export_build_env
-	xorg-2_src_configure
+	xorg-3_src_configure
 }
