@@ -13,7 +13,7 @@ catpkgs = {
 		'select': "v.*",
 		'parsedeps': True,
 		'deps': ['glslang', 'SPIRV-Tools', 'Vulkan-Headers', 'Vulkan-Utility-Libraries'],
-		'version': '1.4.309',
+		'version': '1.4.328',
 	},
 	'Vulkan-Tools': {
 		'cat' : 'dev-util',
@@ -21,7 +21,7 @@ catpkgs = {
 		'query': 'tags',
 		'select': "v.*",
 		'parsedeps': True,
-		'version': '1.4.309',
+		'version': '1.4.328',
 	},
 	'Vulkan-Loader': {
 		'cat': 'media-libs',
@@ -30,14 +30,14 @@ catpkgs = {
 		'select': "v.*",
 		'deps': ['Vulkan-Headers'],
 		'pdeps': ['Vulkan-ValidationLayers'],
-		'version': '1.4.309',
+		'version': '1.4.328',
 	},
 	'Vulkan-Headers': {
 		'cat': 'dev-util',
 		'name': 'vulkan-headers',
 		'query': 'tags',
 		'select': "v.*",
-		'version': '1.4.309',
+		'version': '1.4.328',
 	},
 	'Vulkan-Utility-Libraries': {
 		'cat' : 'media-libs',
@@ -45,7 +45,7 @@ catpkgs = {
 		'query': 'tags',
 		'select': "v.*",
 		'deps': ['Vulkan-Headers'],
-		'version': '1.4.309',
+		'version': '1.4.328',
 	},
 	'SPIRV-Tools': {
 		'cat': 'dev-util',
@@ -53,14 +53,14 @@ catpkgs = {
 		'query': 'tags',
 		'deps': ['SPIRV-Headers'],
 		'select': "vulkan-sdk-.*",
-		'version': '1.4.309.0',
+		'version': '1.4.328.0',
 	},
 	'SPIRV-Headers': {
 		'cat': 'dev-util',
 		'name': 'spirv-headers',
 		'query': 'tags',
 		'select': "vulkan-sdk-.*",
-		'version': '1.4.309.0',
+		'version': '1.4.328.0',
 	},
 	'glslang': {
 		'cat': 'dev-util',
@@ -173,7 +173,7 @@ async def process_json_deps(**pkginfo):
 
 	pkgs = json.loads(data)['repos']
 	for pkg in pkgs:
-		if 'build_platforms' in pkg and not 'linux' in pkg['build_platforms']:
+		if 'build_platforms' in pkg and not 'linux' in pkg['build_platforms'] or 'slang' == pkg['name']:
 			continue
 		name = pkg['name']
 		commit = pkg['commit']
