@@ -2,7 +2,7 @@
 
 EAPI=7
 
-LLVM_COMPAT=( {15..18} )
+# LLVM_COMPAT=( {15..18} )
 LLVM_OPTIONAL=1
 PYTHON_COMPAT=( python3+ )
 
@@ -105,12 +105,15 @@ RDEPEND="${RDEPEND}
 # 1. List all the working slots (with min versions) in ||, newest first.
 # 2. Update the := to specify *max* version, e.g. < 10.
 # 3. Specify LLVM_MAX_SLOT, e.g. 9.
-LLVM_MAX_SLOT="18"
+# LLVM_MAX_SLOT="18"
+# LLVM_DEPSTR="
+# 	|| (
+# 		sys-devel/llvm:18
+# 	)
+# 	<sys-devel/llvm-$((LLVM_MAX_SLOT + 1)):=
+# "
 LLVM_DEPSTR="
-	|| (
-		sys-devel/llvm:18
-	)
-	<sys-devel/llvm-$((LLVM_MAX_SLOT + 1)):=
+	sys-devel/llvm
 "
 LLVM_DEPSTR_AMDGPU=${LLVM_DEPSTR//]/,llvm_targets_AMDGPU(-)]}
 CLANG_DEPSTR=${LLVM_DEPSTR//llvm/clang}
