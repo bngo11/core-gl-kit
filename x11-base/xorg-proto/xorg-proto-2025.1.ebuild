@@ -6,7 +6,7 @@ inherit meson
 
 DESCRIPTION="X.Org combined protocol headers"
 HOMEPAGE="https://cgit.freedesktop.org/xorg/proto/xorgproto/"
-SRC_URI="https://gitlab.freedesktop.org/xorg/proto/xorgproto/-/archive/67469711055522b8adb2d795b01e7ba98cb8816c/xorgproto-67469711055522b8adb2d795b01e7ba98cb8816c.tar.gz -> xorg-proto-2024.1.tar.gz"
+SRC_URI="https://gitlab.freedesktop.org/xorg/proto/xorgproto/-/archive/c18d2bc22813793bba7f0e4e603c0104d7724802/xorgproto-c18d2bc22813793bba7f0e4e603c0104d7724802.tar.gz -> xorg-proto-2025.1.tar.gz"
 KEYWORDS="*"
 
 LICENSE="GPL-2 MIT"
@@ -49,13 +49,13 @@ RDEPEND="
     =x11-proto/xf86rushproto-1.1.2*:0/stub
     =x11-proto/xf86vidmodeproto-2.3.1*:0/stub
     =x11-proto/xineramaproto-1.2.1*:0/stub
-    =x11-proto/xproto-7.0.33*:0/stub
+    =x11-proto/xproto-7.0.34*:0/stub
     =x11-proto/xproxymngproto-1.0.3*:0/stub
     =x11-proto/xwaylandproto-1.0*:0/stub"
 
 post_src_unpack() {
-	shadir="${WORKDIR}"/xorgproto-67469711055522b8adb2d795b01e7ba98cb8816c
-	shortdir="${WORKDIR}"/xorgproto-2024.1
+	shadir="${WORKDIR}"/xorgproto-c18d2bc22813793bba7f0e4e603c0104d7724802
+	shortdir="${WORKDIR}"/xorgproto-2025.1
 
 	if [ ! -d "${S}" ]; then
 		if [ -d "${shadir}" ]; then
