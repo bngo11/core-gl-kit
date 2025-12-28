@@ -5,7 +5,7 @@ EAPI=7
 DESCRIPTION="Video Acceleration (VA) API for Linux"
 HOMEPAGE="https://01.org/linuxmedia/vaapi"
 
-SRC_URI="https://github.com/intel/libva/releases/download/2.22.0/libva-2.22.0.tar.bz2 -> libva-2.22.0.tar.bz2"
+SRC_URI="https://github.com/intel/libva/releases/download/2.23.0/libva-2.23.0.tar.bz2 -> libva-2.23.0.tar.bz2"
 KEYWORDS="*"
 
 LICENSE="MIT"
