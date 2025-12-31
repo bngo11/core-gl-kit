@@ -114,6 +114,7 @@ async def generate(hub, **pkginfo):
 
 		xorgproto_implementations.append((template_args, cpvr, artifact))
 
+	"""
 	template_args = dict(
 		**pkginfo,
 		version="2023.2",
@@ -142,6 +143,7 @@ async def generate(hub, **pkginfo):
 	artifact = hub.pkgtools.ebuild.Artifact(url=url, final_name=final_name)
 
 	xorgproto_implementations.append((template_args, cpvr, artifact))
+	"""
 
 	sub_ebuild_template = """# Distributed under the terms of the GNU General Public License v2
 EAPI=6
