@@ -193,7 +193,7 @@ src_install() { return 0; }
 			name=pv_key[0],
 			cat="x11-proto",
 			version=pv_key[1],
-			revision=3,
+			revision=2,
 			all_meta_atoms=all_meta_atoms,
 			template_text=sub_ebuild_template,
 		)
