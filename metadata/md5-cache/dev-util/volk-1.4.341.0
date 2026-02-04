@@ -1,15 +1,15 @@
 BDEPEND=dev-util/ninja dev-util/cmake
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=~media-libs/vulkan-loader-1.4.328:= ~dev-util/vulkan-headers-1.4.328
+DEPEND=~media-libs/vulkan-loader-1.4.341.0:= ~dev-util/vulkan-headers-1.4.341.0
 DESCRIPTION=Meta loader for Vulkan API
 EAPI=7
 HOMEPAGE=https://github.com/zeux/volk
 IUSE=test
 KEYWORDS=*
 LICENSE=MIT
-RDEPEND=~media-libs/vulkan-loader-1.4.328:=
+RDEPEND=~media-libs/vulkan-loader-1.4.341.0:=
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/zeux/volk/archive/vulkan-sdk-1.4.328.tar.gz -> volk-1.4.328.tar.gz
+SRC_URI=https://github.com/zeux/volk/archive/vulkan-sdk-1.4.341.0.tar.gz -> volk-1.4.341.0.tar.gz
 _eclasses_=cmake	ac7cb516f6a288b6a82bc0649ce49878	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	d0939f99dd528dd0c5ec25284877bf5c	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	e7575bc4a90349d76e72777013b2bbc2	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	xdg-utils	14d00d009167652b1fa363e55effe213
-_md5_=cbcc308226494eff527a51d7ab228576
+_md5_=e094bd1b1d8a20a7d11d2b1a57e1b0d6
