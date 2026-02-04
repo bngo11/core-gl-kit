@@ -83,6 +83,21 @@ async def generate(hub, **pkginfo):
 		'template_path': os.path.normpath(os.path.join(os.path.dirname(__file__), 'templates')),
 	}
 
+	# get version
+	json_data = await hub.pkgtools.fetch.get_page(f"https://api.github.com/repos/KhronosGroup/Vulkan-Headers/tags", is_json=True)
+
+	for item in json_data:
+		try:
+			name = item["name"]
+			if not name.startswith("vulkan-sdk-"):
+				continue
+			version = name.rsplit("-", 1)[-1]
+			list(map(int, version.split(".")))
+			break
+
+		except (KeyError, IndexError, ValueError):
+			continue
+
 	# Run through all the catpkgs and record all the versions and details needed to generate ebuilds
 	for name in catpkgs:
 		catpkg_info = {
@@ -96,6 +111,9 @@ async def generate(hub, **pkginfo):
 			revision = { "1.3.231.0_p20221013": 1 }
 			catpkg_info['revision'] = revision
 		'''
+
+		if "version" in catpkgs[name]:
+			catpkgs[name]["version"] = version
 
 		catpkg_info.update(catpkgs[name])
 		print(f"Processing {catpkg_info['name']}")

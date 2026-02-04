@@ -6,7 +6,7 @@ inherit cmake-utils
 
 DESCRIPTION="Machine-readable files for the SPIR-V Registry"
 HOMEPAGE="https://www.khronos.org/registry/spir-v/ https://github.com/KhronosGroup/SPIRV-Headers"
-SRC_URI="https://github.com/KhronosGroup/SPIRV-Headers/tarball/01e0577914a75a2569c846778c2f93aa8e6feddd -> SPIRV-Headers-1.4.328.0-01e0577.tar.gz"
+SRC_URI="https://github.com/KhronosGroup/SPIRV-Headers/tarball/04f10f650d514df88b76d25e83db360142c7b174 -> SPIRV-Headers-1.4.341.0-04f10f6.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
