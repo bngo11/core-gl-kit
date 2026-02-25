@@ -1,0 +1,12 @@
+BDEPEND=>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.17:1.17 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/pkgconfig doc? ( doc? ( || ( app-text/asciidoc dev-ruby/asciidoctor ) app-text/xmlto app-text/docbook-xml-dtd:4.1.2 app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.3 ) )
+DEFINED_PHASES=compile configure install postinst postrm prepare unpack
+DESCRIPTION=X.Org xtrans library
+EAPI=7
+HOMEPAGE=https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/lib/libxtrans
+IUSE=doc
+KEYWORDS=*
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://www.x.org/releases/individual/lib/xtrans-1.6.0.tar.xz
+_eclasses_=autotools	619846d0d85ed5d3334692c0215a603e	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	d0939f99dd528dd0c5ec25284877bf5c	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	xorg-3	0d4459fe7d349925e54672d2342ba600
+_md5_=d234105eb37ae125731d46df4c48c407
