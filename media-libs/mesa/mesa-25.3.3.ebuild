@@ -2,7 +2,7 @@
 
 EAPI=7
 
-# LLVM_COMPAT=( {15..18} )
+# LLVM_COMPAT=( 21 )
 LLVM_OPTIONAL=1
 PYTHON_COMPAT=( python3+ )
 
@@ -28,22 +28,12 @@ for card in ${VIDEO_CARDS}; do
 done
 
 IUSE="${IUSE_VIDEO_CARDS}
-	cpu_flags_x86_sse2 d3d9 debug gles1 +gles2 +llvm
-	lm-sensors opencl +opengl osmesa +proprietary-codecs selinux
+	cpu_flags_x86_sse2 debug gles1 +gles2 +llvm
+	lm-sensors opencl +opengl osmesa +proprietary-codecs
 	test unwind vaapi valgrind vdpau vulkan
 	vulkan-overlay wayland +X xa zink +zstd"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
-	d3d9? (
-		|| (
-			video_cards_intel
-			video_cards_r300
-			video_cards_r600
-			video_cards_radeonsi
-			video_cards_nouveau
-			video_cards_vmware
-		)
-	)
 	llvm? ( ${LLVM_REQUIRED_USE} )
 	vulkan-overlay? ( vulkan )
 	video_cards_lavapipe? ( llvm vulkan )
@@ -57,6 +47,7 @@ REQUIRED_USE="
 
 LIBDRM_DEPSTRING=">=x11-libs/libdrm-2.4.119"
 RDEPEND="
+	dev-libs/libclc
 	>=dev-libs/expat-2.1.0-r3
 	>=media-libs/libglvnd-1.3.2[X?]
 	>=sys-libs/zlib-1.2.8
@@ -73,7 +64,6 @@ RDEPEND="
 	)
 	vdpau? ( >=x11-libs/libvdpau-1.4:= )
 	video_cards_radeonsi? ( virtual/libelf:0= )
-	selinux? ( sys-libs/libselinux )
 	wayland? ( >=dev-libs/wayland-1.18.0 )
 	${LIBDRM_DEPSTRING}[video_cards_freedreno?,video_cards_intel?,video_cards_nouveau?,video_cards_vc4?,video_cards_vivante?,video_cards_vmware?]
 	X? (
@@ -188,6 +178,7 @@ BDEPEND="
 		>=dev-util/bindgen-0.58.0
 		>=dev-build/meson-1.3.1
 	)
+	dev-util/bindgen
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
@@ -309,17 +300,6 @@ src_configure() {
 	use wayland && platforms+=",wayland"
 	emesonargs+=(-Dplatforms=${platforms#,})
 
-	if use video_cards_intel ||
-	   use video_cards_r300 ||
-	   use video_cards_r600 ||
-	   use video_cards_radeonsi ||
-	   use video_cards_nouveau ||
-	   use video_cards_vmware; then
-		emesonargs+=($(meson_use d3d9 gallium-nine))
-	else
-		emesonargs+=(-Dgallium-nine=false)
-	fi
-
 	if use video_cards_d3d12 ||
 	   use video_cards_r600 ||
 	   use video_cards_radeonsi ||
@@ -334,24 +314,6 @@ src_configure() {
 		emesonargs+=($(meson_feature vaapi gallium-d3d12-video))
 	fi
 
-	if use video_cards_d3d12 ||
-	   use video_cards_r300 ||
-	   use video_cards_r600 ||
-	   use video_cards_radeonsi ||
-	   use video_cards_nouveau; then
-		emesonargs+=($(meson_feature vdpau gallium-vdpau))
-	else
-		emesonargs+=(-Dgallium-vdpau=disabled)
-	fi
-
-	if use video_cards_freedreno ||
-	   use video_cards_nouveau ||
-	   use video_cards_vmware; then
-		emesonargs+=($(meson_feature xa gallium-xa))
-	else
-		emesonargs+=(-Dgallium-xa=disabled)
-	fi
-
 	if use video_cards_freedreno ||
 	   use video_cards_lima ||
 	   use video_cards_panfrost ||
@@ -361,7 +323,6 @@ src_configure() {
 		gallium_enable -- kmsro
 	fi
 
-	gallium_enable -- swrast
 	gallium_enable video_cards_freedreno freedreno
 	gallium_enable video_cards_intel crocus i915 iris
 	gallium_enable video_cards_lima lima
@@ -411,12 +372,6 @@ src_configure() {
 	use vulkan-overlay && vulkan_layers+=",overlay"
 	emesonargs+=(-Dvulkan-layers=${vulkan_layers#,})
 
-	if use llvm && use vulkan && use video_cards_intel && use amd64; then
-		emesonargs+=(-Dintel-clc=system)
-	else
-		emesonargs+=(-Dintel-clc=auto)
-	fi
-
 	if use opengl || use gles1 || use gles2; then
 		emesonargs+=(
 			-Degl=enabled
@@ -439,15 +394,12 @@ src_configure() {
 
 	emesonargs+=(
 		$(meson_use test build-tests)
-		-Dshared-glapi=enabled
 		-Dexpat=enabled
 		$(meson_use opengl)
 		$(meson_feature gles1)
 		$(meson_feature gles2)
 		$(meson_feature llvm)
 		$(meson_feature lm-sensors lmsensors)
-		$(meson_use osmesa)
-		$(meson_use selinux)
 		$(meson_feature unwind libunwind)
 		$(meson_feature zstd)
 		$(meson_use cpu_flags_x86_sse2 sse2)

@@ -4,64 +4,53 @@ EAPI=7
 
 inherit meson
 
-DESCRIPTION="Standalone X server running under Wayland"
+DESCRIPTION="Compatibility X server to run under Wayland"
 HOMEPAGE="https://wayland.freedesktop.org/xserver.html"
-SRC_URI="https://xorg.freedesktop.org/archive/individual/xserver/${P}.tar.xz"
-
-IUSE="selinux video_cards_nvidia unwind xcsecurity"
+SRC_URI="https://www.x.org/releases/individual/xserver/${P}.tar.xz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="*"
+IUSE="rpc selinux unwind video_cards_nvidia xcsecurity"
 
-COMMON_DEPEND="
+DEPEND="
 	dev-libs/libbsd
-	dev-libs/openssl:=
-	>=dev-libs/wayland-1.20
-	>=dev-libs/wayland-protocols-1.22
+	dev-libs/openssl
+	>=dev-libs/wayland-1.21.0
+	>=dev-libs/wayland-protocols-1.30
 	media-fonts/font-util
-	>=media-libs/libepoxy-1.5.4[X,egl(+)]
+	media-libs/libepoxy[X,egl(+)]
 	media-libs/libglvnd[X]
-	>=media-libs/mesa-21.1[X(+),egl(+),gbm(+)]
-	>=x11-libs/libdrm-2.4.89
-	>=x11-libs/libXau-1.0.4
+	media-libs/mesa[X(+),egl(+),gbm(+)]
+	x11-apps/xkbcomp
+	>=x11-base/xorg-proto-2022.2
+	>=x11-libs/libdrm-2.4.109
+	x11-libs/libXau
 	x11-libs/libxcvt
-	>=x11-libs/libXdmcp-1.0.2
-	>=x11-libs/libXfont2-2.0.1
+	x11-libs/libXdmcp
+	x11-libs/libXfont2
 	x11-libs/libxkbfile
 	>=x11-libs/libxshmfence-1.1
-	>=x11-libs/pixman-0.27.2
-	>=x11-misc/xkeyboard-config-2.4.1-r3
-
+	x11-libs/pixman
+	>=x11-libs/xtrans-1.3.5
+	selinux? (
+		sys-process/audit
+		>=sys-libs/libselinux-2.0.86
+	)
 	unwind? ( sys-libs/libunwind )
 	video_cards_nvidia? ( gui-libs/egl-wayland )
 "
-DEPEND="
-	${COMMON_DEPEND}
-	x11-base/xorg-proto
-	>=x11-libs/xtrans-1.3.5
-"
-RDEPEND="
-	${COMMON_DEPEND}
-	x11-apps/xkbcomp
-	!<=x11-base/xorg-server-1.20.11
+RDEPEND="${DEPEND}
 	selinux? ( sec-policy/selinux-xserver )
+	!<=x11-base/xorg-server-1.20.11
 "
-BDEPEND="
-	sys-devel/flex
-	dev-util/wayland-scanner
-"
-
-PATCHES=(
-	"${FILESDIR}"/xwayland-drop-redundantly-installed-files.patch
-)
 
 src_configure() {
 	local emesonargs=(
+		$(meson_use rpc secure-rpc)
 		$(meson_use selinux xselinux)
 		$(meson_use unwind libunwind)
 		$(meson_use xcsecurity)
-		$(meson_use video_cards_nvidia xwayland_eglstream)
 		-Ddpms=true
 		-Ddri3=true
 		-Ddrm=true
@@ -78,6 +67,7 @@ src_configure() {
 		-Dxvfb=true
 		-Dxv=true
 		-Dxwayland-path="${EPREFIX}"/usr/bin
+		-Dlibdecor=false
 		-Ddocs=false
 		-Ddevel-docs=false
 		-Ddocs-pdf=false
@@ -87,7 +77,12 @@ src_configure() {
 }
 
 src_install() {
-	dosym ../bin/Xwayland /usr/libexec/Xwayland
-
 	meson_src_install
+
+	# Part of xorg-server
+	rm -f "${ED}"/usr/share/man/man1/Xserver.1 || die
+
+	# Part of xorg-server
+	rm -f "${ED}"/usr/lib64/xorg/protocol.txt || die
 }
+
