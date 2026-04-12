@@ -26,6 +26,7 @@ VIDEO_CARDS="${RADEON_CARDS} d3d12 freedreno intel lavapipe lima nouveau panfros
 for card in ${VIDEO_CARDS}; do
 	IUSE_VIDEO_CARDS+=" video_cards_${card}"
 done
+GALLIUM_DRIVERS=("llvmpipe")
 
 IUSE="${IUSE_VIDEO_CARDS}
 	cpu_flags_x86_sse2 debug gles1 +gles2 +llvm
