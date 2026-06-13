@@ -18,7 +18,7 @@ IUSE="layers wayland X"
 
 BDEPEND=">=dev-util/cmake-3.10.2"
 DEPEND="
-	=dev-util/vulkan-headers-1.4.350.0*
+	>=dev-util/vulkan-headers-1.4.350.0
 	${PYTHON_DEPS}
 	wayland? ( dev-libs/wayland:= )
 	X? (
@@ -26,7 +26,7 @@ DEPEND="
 		x11-libs/libXrandr:=
 	)
 "
-PDEPEND="layers? ( =media-libs/vulkan-layers-1.4.350.0*:= )"
+PDEPEND="layers? ( >=media-libs/vulkan-layers-1.4.350.0:= )"
 
 post_src_unpack() {
 	mv "${WORKDIR}"/KhronosGroup-Vulkan-Loader-* ${S} || die

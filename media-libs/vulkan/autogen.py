@@ -152,7 +152,7 @@ async def generate(hub, **pkginfo):
 ###
 def create_dependency_string(**pkginfo):
 	if 'version' in pkginfo:
-		return f"={pkginfo['cat']}/{pkginfo['name']}-{pkginfo['version']}*"
+		return f">={pkginfo['cat']}/{pkginfo['name']}-{pkginfo['version']}"
 	return f"{pkginfo['cat']}/{pkginfo['name']}"
 
 ###

@@ -19,7 +19,7 @@ KEYWORDS="*"
 RESTRICT="test"
 
 COMMON_DEPEND="
-	=dev-util/spirv-headers-1.4.350.0*
+	>=dev-util/spirv-headers-1.4.350.0
 "
 DEPEND="${COMMON_DEPEND}"
 RDEPEND=""

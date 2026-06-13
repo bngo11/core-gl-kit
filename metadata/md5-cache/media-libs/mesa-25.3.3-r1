@@ -12,5 +12,5 @@ REQUIRED_USE=llvm? ( ) vulkan-overlay? ( vulkan ) video_cards_lavapipe? ( llvm v
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://archive.mesa3d.org/mesa-25.3.3.tar.xz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	linux-info	c90a203b1c14cfa77bd3e37a0e96c955	llvm	0f50659a186a5ed3ef31188990c28b0f	meson	9dd80e336e5b53305fbef9693721928e	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	e7575bc4a90349d76e72777013b2bbc2	python-any-r1	54a3178500786b0a7ede4a23b7f2a6ad	python-utils-r1	c57a84554d3dca7c828e40d877b2dd7d	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	linux-info	c90a203b1c14cfa77bd3e37a0e96c955	llvm	53a03c6cda7448367b87d66c71238704	meson	9dd80e336e5b53305fbef9693721928e	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	e7575bc4a90349d76e72777013b2bbc2	python-any-r1	54a3178500786b0a7ede4a23b7f2a6ad	python-utils-r1	c57a84554d3dca7c828e40d877b2dd7d	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
 _md5_=e9678ae08bffc06c3de82e2df5dedce0

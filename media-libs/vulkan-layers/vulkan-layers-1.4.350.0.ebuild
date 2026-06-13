@@ -19,10 +19,10 @@ RESTRICT="network-sandbox"
 
 BDEPEND=">=dev-util/cmake-3.10.2"
 DEPEND="
-	=dev-util/glslang-16.3.0*
-	=dev-util/spirv-tools-1.4.350.0*
-	=dev-util/vulkan-headers-1.4.350.0*
-	=media-libs/vulkan-utils-1.4.350.0*
+	>=dev-util/glslang-16.3.0
+	>=dev-util/spirv-tools-1.4.350.0
+	>=dev-util/vulkan-headers-1.4.350.0
+	>=media-libs/vulkan-utils-1.4.350.0
 	${PYTHON_DEPS}
 	dev-cpp/robin-hood-hashing
 	wayland? ( dev-libs/wayland:= )
