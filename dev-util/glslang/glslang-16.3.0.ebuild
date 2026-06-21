@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="*"
 
 DEPEND="
-	>=dev-util/spirv-tools-1.4.350.0
+	>=dev-util/spirv-tools-1.4.350.1
 "
 RDEPEND="!<media-libs/shaderc-2020.1"
 BDEPEND="${PYTHON_DEPS}"
