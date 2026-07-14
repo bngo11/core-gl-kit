@@ -5,6 +5,8 @@ EAPI=7
 
 XORG_DOC=doc
 XORG_MULTILIB=yes
+XORG_TARBALL_SUFFIX="bz2"
+
 inherit xorg-3
 
 DESCRIPTION="X.Org Xext library"

@@ -1,6 +1,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+XORG_TARBALL_SUFFIX="bz2"
 
 inherit xorg-3
 
