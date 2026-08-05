@@ -10,7 +10,7 @@ SRC_URI="https://github.com/KhronosGroup/SPIRV-Headers/tarball/1e770e7de8373a8dd
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="*"
+KEYWORDS=""
 
 post_src_unpack() {
 	mv "${WORKDIR}"/*SPIRV-Headers-* "${S}" || die
