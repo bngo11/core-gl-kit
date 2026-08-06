@@ -26,6 +26,7 @@ VIDEO_CARDS="${RADEON_CARDS} d3d12 freedreno intel lavapipe lima nouveau panfros
 for card in ${VIDEO_CARDS}; do
 	IUSE_VIDEO_CARDS+=" video_cards_${card}"
 done
+GALLIUM_DRIVERS=("llvmpipe")
 
 IUSE="${IUSE_VIDEO_CARDS}
 	cpu_flags_x86_sse2 debug gles1 +gles2 +llvm
@@ -52,7 +53,7 @@ RDEPEND="
 	>=media-libs/libglvnd-1.3.2[X?]
 	>=sys-libs/zlib-1.2.8
 	unwind? ( sys-libs/libunwind )
-	lm-sensors? ( sys-apps/lm-sensors:= )
+	lm-sensors? ( sys-apps/lm_sensors:= )
 	opencl? (
 		>=virtual/opencl-3
 		dev-libs/libclc[spirv(-)]
@@ -312,16 +313,6 @@ src_configure() {
 
 	if use video_cards_d3d12; then
 		emesonargs+=($(meson_feature vaapi gallium-d3d12-video))
-	fi
-
-	if use video_cards_d3d12 ||
-	   use video_cards_r300 ||
-	   use video_cards_r600 ||
-	   use video_cards_radeonsi ||
-	   use video_cards_nouveau; then
-		emesonargs+=($(meson_feature vdpau gallium-vdpau))
-	else
-		emesonargs+=(-Dgallium-vdpau=disabled)
 	fi
 
 	if use video_cards_freedreno ||

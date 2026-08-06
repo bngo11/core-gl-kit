@@ -53,7 +53,7 @@ RDEPEND="
 	>=media-libs/libglvnd-1.3.2[X?]
 	>=sys-libs/zlib-1.2.8
 	unwind? ( sys-libs/libunwind )
-	lm-sensors? ( sys-apps/lm-sensors:= )
+	lm-sensors? ( sys-apps/lm_sensors:= )
 	opencl? (
 		>=virtual/opencl-3
 		dev-libs/libclc[spirv(-)]
