@@ -8,6 +8,6 @@ KEYWORDS=amd64
 LICENSE=NVIDIA
 RDEPEND=net-libs/libtirpc:= sys-libs/libcap sys-libs/libseccomp virtual/libelf:= x11-drivers/nvidia-drivers x11-drivers/nvidia-kernel-modules
 SLOT=0
-SRC_URI=https://github.com/NVIDIA/libnvidia-container/tarball/d1dc867ccbeee9a493a65abe1564569cea52d47c -> libnvidia-container-1.19.0-d1dc867.tar.gz https://github.com/NVIDIA/nvidia-modprobe/tarball/149440ca0654d928f27df5ebff485a122bfe43b1 -> nvidia-modprobe-550.54.14-149440c.tar.gz https://sourceforge.net/projects/elftoolchain/files/Sources/elftoolchain-0.7.1/elftoolchain-0.7.1.tar.bz2 -> elftoolchain-0.7.1.tar.bz2
+SRC_URI=https://github.com/NVIDIA/libnvidia-container/tarball/26735194887b9f4d937baa008b781cf8493d8661 -> libnvidia-container-1.20.0-2673519.tar.gz https://github.com/NVIDIA/nvidia-modprobe/tarball/149440ca0654d928f27df5ebff485a122bfe43b1 -> nvidia-modprobe-550.54.14-149440c.tar.gz https://sourceforge.net/projects/elftoolchain/files/Sources/elftoolchain-0.7.1/elftoolchain-0.7.1.tar.bz2 -> elftoolchain-0.7.1.tar.bz2
 _eclasses_=eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	d0939f99dd528dd0c5ec25284877bf5c	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=f5d1a4817236608589e5a830b4ffa9d8
+_md5_=85b9aaac997fc4d4d1a0c40aacae63bc

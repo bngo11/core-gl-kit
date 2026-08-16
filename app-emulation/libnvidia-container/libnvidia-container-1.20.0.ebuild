@@ -8,7 +8,7 @@ DESCRIPTION="NVIDIA container runtime library and nvidia-container-cli tool"
 HOMEPAGE="https://github.com/NVIDIA/libnvidia-container"
 SRC_URI="
     
-	    https://github.com/NVIDIA/libnvidia-container/tarball/d1dc867ccbeee9a493a65abe1564569cea52d47c -> libnvidia-container-1.19.0-d1dc867.tar.gz
+	    https://github.com/NVIDIA/libnvidia-container/tarball/26735194887b9f4d937baa008b781cf8493d8661 -> libnvidia-container-1.20.0-2673519.tar.gz
 	
 	    https://github.com/NVIDIA/nvidia-modprobe/tarball/149440ca0654d928f27df5ebff485a122bfe43b1 -> nvidia-modprobe-550.54.14-149440c.tar.gz
 	

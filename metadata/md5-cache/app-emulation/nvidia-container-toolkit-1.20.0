@@ -1,0 +1,14 @@
+BDEPEND=dev-lang/go >=dev-lang/go-1.12 app-arch/unzip
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=app-emulation/libnvidia-container
+DESCRIPTION=NVIDIA container runtime toolkit
+EAPI=7
+HOMEPAGE=https://github.com/NVIDIA/nvidia-container-toolkit
+KEYWORDS=*
+LICENSE=Apache-2.0
+RDEPEND=app-emulation/libnvidia-container
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/NVIDIA/nvidia-container-toolkit/tarball/f0c382c8889507a77c977b82d7e9beba790959d9 -> nvidia-container-toolkit-1.20.0-f0c382c.tar.gz https://direct.funtoo.org/96/8d/3a/968d3a228505c5cb366f2c59a1c93ddcbcdacaed2e52a96c814e3b7f6db69563869e58d2713c5385e2c18dac2747ffa09d80ca9be4039f94b2ed4b26cfcdbc0e -> nvidia-container-toolkit-1.20.0-funtoo-go-bundle-195289d9e70e6c6fc2a2d14ec792369a2012082e9f518a82888d92fecbef0eb11e3c34423daeea91c39b52057d00d4669f29d3f0662afcb8f72c29b66611f8ea.tar.gz
+_eclasses_=go-module	cb10a443c46556a15ed035d7a99128e8	xdg-utils	14d00d009167652b1fa363e55effe213
+_md5_=b3e903c551605d1fb3021a42c19c50e5
